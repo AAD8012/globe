@@ -162,10 +162,10 @@ DAT.Globe = function (container, opts) {
       }, 2000); // 3000 milisegundos = 3 segundos
     }, false);
 
-    container.addEventListener('mouseout', function () {
-      overRenderer = false;
-      console.log("Mouse out of the renderer!");
-    }, false);
+    // container.addEventListener('mouseout', function () {
+    //   overRenderer = false;
+    //   console.log("Mouse out of the renderer!");
+    // }, false);
 
   }
 
