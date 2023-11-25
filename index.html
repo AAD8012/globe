@@ -1,111 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <title>sellcom</title>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-            background: white url(loading.gif) center center no-repeat;
-            color: #ffffff;
-            font-family: "Montserrat", sans-serif;
-            font-size: 13px;
-            height: 100%;
+      body {
+        margin: 0;
+        padding: 0;
+        background: white url(loading.gif) center center no-repeat;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        height: 100%;
+      }
+
+      #currentInfo {
+        width: 100%;
+        position: absolute;
+        top: 93%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      a {
+        color: #aaa;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .year {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        font-size: 1.5vw;
+        color: #9da5aa;
+        margin-right: 20px;
+      }
+
+      .year:hover {
+        color: #3a3a3a;
+      }
+
+      #ce span {
+        display: none;
+      }
+
+      @keyframes appearFromBottom {
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
+      h1 {
+        overflow: hidden;
+        position: relative;
+        font-size: 4vw !important;
+      }
 
-        #currentInfo {
-            width: 100%;
-            position: absolute;
-            top: 93%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 200px;
+      h1 span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: appearFromBottom 0.5s forwards;
+        animation-delay: calc(0.5s * var(--index));
+      }
 
-        }
+      canvas {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+      }
 
-        a {
-            color: #aaa;
-            text-decoration: none;
-        }
+      .btn-view-all div:first-child {
+        transition: background-color 0.3s ease;
+      }
 
-        a:hover {
-            text-decoration: underline;
-        }
+      .btn-view-all:hover div:first-child {
+        background-color: #9377ab;
+      }
 
+      .rojo {
+        border: solid red 1px;
+      }
 
-        .year {
-            text-align: center;
-            float: left;
-            color: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            font-size: 1.5vw;
-            color: black;
-            margin-right: 20px;
-            margin-bottom: 50px;
-        }
+      .conocenos_1 {
+        position: absolute;
+        top: 0;
+        left: 18%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+      }
 
-        #ce span {
-            display: none;
-        }
+      .conocenos_2 {
+        position: absolute;
+        top: 0;
+        left: 41%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+      }
 
-
-        @keyframes appearFromBottom {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            overflow: hidden;
-            position: relative;
-            font-size: 4vw !important;
-        }
-
-        h1 span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(100%);
-            animation: appearFromBottom 0.5s forwards;
-            animation-delay: calc(0.5s * var(--index));
-        }
-
-        canvas {
-            width: 100% !important;
-            height: auto !important;
-            position: relative !important;
-        }
-
-        .btn-view-all div:first-child {
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-view-all:hover div:first-child {
-            background-color: black;
-        }
-
+      .conocenos_3 {
+        position: absolute;
+        top: 0;
+        left: 65%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+      }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap"
-            rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
     />
-</head>
-<body>
-<div style="position: relative">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div style="position: relative">
+      <div id="container"></div>
 
-    <div id="container"></div>
-
-    <div id="currentInfo">
+      <div id="currentInfo">
         <span id="year1990" class="year">HCI + SPDC |</span>
         <span id="year1995" class="year">Nube |</span>
         <span id="year2000" class="year">Seguridad |</span>
@@ -114,44 +143,52 @@
         <span id="year3" class="year">Datos |</span>
         <span id="year4" class="year">Redes |</span>
         <span id="year5" class="year">Usuario Final</span>
-    </div>
+      </div>
 
-    <div style="
-        text-align: center;
-        position: absolute;
-        width: 100%;
-        top: 40%;
-        color: #463c4f;
-        font-weight: 500;
-      "
-         class="letrasConEfecto"
-    >
+      <div
+        style="
+          text-align: center;
+          position: absolute;
+          width: 100%;
+          top: 40%;
+          color: #463c4f;
+          font-weight: 500;
+        "
+        class="letrasConEfecto"
+      >
         <h1>
-            <span style="--index: 1">Transformación</span>
+          <span style="--index: 1">Transformación</span>
 
-            <span style="--index: 2">Sin</span>
+          <span style="--index: 2">Sin</span>
 
-            <span style="--index: 3">Fronteras</span>
+          <span style="--index: 3">Fronteras</span>
         </h1>
-
-
-    </div>
-    <div style="position: absolute;  top: 0; left: 3%">
+      </div>
+      <div style="position: absolute; top: 0; left: 3%">
         <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
-                alt=""
-                width="5%"
+          src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
+          alt=""
+          width="5%"
         />
+      </div>
     </div>
 
-
-</div>
-
-<div style="width: 100%;  ">
-    <div class="row"
-         style="padding:0% 15%; font-size: .9vw; text-align: center; font-weight: bold; ">
-        <div class="col" style=" margin: auto">
-            <img src="assets/flecha-correcta.png" style="width: 20%;">
+    <div style="width: 100%">
+      <div
+        class="row"
+        style="
+          padding: 0% 19%;
+          font-size: 0.7vw;
+          text-align: center;
+          font-weight: lighter;
+          height: 5vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <div class="col-1" style="margin: auto">
+          <img src="assets/flecha-correcta.png" style="width: 40%" />
         </div>
         <div class="col">Verticales de negocio</div>
         <div class="col">Conócenos</div>
@@ -159,413 +196,542 @@
         <div class="col">Nuestros partner</div>
         <div class="col">Lider en TI</div>
         <div class="col">Aviso de privacidad</div>
-    </div>
+      </div>
 
-    <div class="row" style="background-color: #C7CFD6; width: 100%; height: 100vh">
-        <div class="col-12" style="padding: 4%  1%; ">
-            <div class="row" style="padding: 1% 0%">
-                <div class="col-2" style="text-align: end; font-size: 1.5vw"><em>01/</em></div>
-                <div class="col-8" style=" font-size: 2.3vw">Verticales de Negocio</div>
-                <div class="col-2 btn-view-all"
-                     style="display: flex; align-items: center;  font-size: 1vw">
-                    <div style="width: 20px; height: 20px; border: solid 1px black; border-radius: 50%; margin-right: 5px"></div>
-                    <div>VER TODO</div>
-                </div>
+      <div
+        class="row"
+        style="background-color: #e3e3e4; width: 100%; height: 100vh"
+      >
+        <div class="col-12" style="padding: 4% 1%">
+          <div class="row" style="padding: 1% 0%; color: #3a3a3a">
+            <div class="col-2" style="text-align: end; font-size: 1.5vw">
+              <em>01/</em>
             </div>
-            <div class="row">
-                <div class="col-2" style="text-align: end;font-size: 1.5vw"></div>
-                <div class="col-8" style=" font-size: 1.8vw"><em>Descrubre el
-                    potencial de tu
-                    empresa con nustras estrategias.</em></div>
-                <div class="col-2"
-                     style="display: flex; align-items: center;  font-size: 1vw">
-                </div>
+            <div class="col-8" style="font-size: 2.3vw">
+              Verticales de Negocio
             </div>
-
-            <div class="row">
-                <div class="col-4" style="  font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white">
-                        <div class="col-12" style="font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style=" ; font-size: 1.5vw"><img
-                                src="assets/ejemplo.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style="  text-align: center;height:18vh">
-                            <p style="font-size: 2vw">HCI + SDDC</p>
-                            <p style="font-size: .8vw">Transformamos la infraestructura de TI para que sea definida por
-                                software que virtualiza
-                                todos los elmentos de los sistemas convencionales definidos por hardware.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4" style=" font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white">
-                        <div class="col-12" style=" font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style="  font-size: 1.5vw"><img
-                                src="assets/ejemplo.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style="  text-align: center;height:18vh">
-                            <p style="font-size: 2vw">SEGURIDAD</p>
-                            <p style="font-size: .8vw">Habilitamos y apoyamos en cada momento critico sobre las amenazas
-                                cibernéticas, antes y durante los eventos. </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4" style="  font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white">
-                        <div class="col-12" style=" font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style="  font-size: 1.5vw"><img
-                                src="assets/ejemplo.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style=" text-align: center;height:18vh">
-                            <p style="font-size: 2vw">USUARIO FINAL</p>
-                            <p style="font-size: .8vw">Nos aseguramos de que los usuarios, con distintos dispositivos,
-                                puedan acceder a sus aplicaciones y datos desde cualquier lugar y en cualquier
-                                momento.</p>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div
+              class="col-2 btn-view-all"
+              style="
+                display: flex;
+                align-items: center;
+                font-size: 1vw;
+                color: #9377ab;
+              "
+            >
+              <div
+                style="
+                  width: 20px;
+                  height: 20px;
+                  border: solid 1px #cac4cf;
+                  border-radius: 50%;
+                  margin-right: 5px;
+                "
+              ></div>
+              <div>VER TODO</div>
             </div>
-        </div>
-
-
-    </div>
-
-    <div class="row" style="background-color: white; width: 100%; ">
-        <div class="col-12" style="padding: 4%  1%; ">
-            <div class="row" style="padding: 1% 0%">
-                <div class="col-2" style="text-align: end;font-size: 1.5vw"><em>02/</em></div>
-                <div class="col-8" style=" font-size: 2.3vw">Conócenos</div>
-                <div class="col-2 "></div>
+          </div>
+          <div class="row" style="color: #3a3a3a">
+            <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
+            <div class="col-8" style="font-size: 1.8vw">
+              <em
+                >Descrubre el potencial de tu empresa con nuestras
+                estrategias.</em
+              >
             </div>
+            <div
+              class="col-2"
+              style="display: flex; align-items: center; font-size: 1vw"
+            ></div>
+          </div>
 
-
-            <div class="row" style="padding: 1% 15%">
-                <div class="col-4" style=" font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white;border: solid black 1px; ">
-                        <div class="col-12" style="  font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style=" font-size: 1.5vw"><img
-                                src="assets/1.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style=" text-align: center;">
-                            <div class="row">
-                                <div class="col" style=" font-size: 1.3vw"><p>
-                                    Sobre Sellcom</p></div>
-                                <div class="col">--------</div>
-
-                            </div>
-
-                        </div>
-                    </div>
+          <div class="row">
+            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+              <div class="row" style="background-color: #f3f2f3">
+                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
+                <div class="col-12" style="font-size: 1.5vw">
+                  <img src="assets/verticales/HCI.jpg" style="width: 100%" />
                 </div>
-
-                <div class="col-4" style="  font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white;border: solid black 1px; ">
-                        <div class="col-12" style=" font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style=" font-size: 1.5vw"><img
-                                src="assets/2.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style=" text-align: center;">
-                            <div class="row">
-                                <div class="col" style=" font-size: 1.3vw"><p>
-                                    Premios</p></div>
-                                <div class="col">--------</div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-4" style="  font-size: 1.5vw; padding: 2%">
-
-                    <div class="row" style="background-color:white;border: solid black 1px; ">
-                        <div class="col-12" style="  font-size: 1.5vw; height:5vh">
-
-                        </div>
-                        <div class="col-12" style="  font-size: 1.5vw"><img
-                                src="assets/3.png"
-                                style="width: 100%">
-                        </div>
-                        <div class="col-12" style="  text-align: center;">
-                            <div class="row">
-                                <div class="col" style="font-size: 1.3vw"><p>
-                                    Contáctanos</p></div>
-                                <div class="col">--------</div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-
-    </div>
-
-    <div style="width: 100%; height: 100vh;">
-        <iframe src="https://aad8012.github.io/particles/" style="width: 100%; height: 100%;" frameborder="0"></iframe>
-    </div>
-
-    <div class="row" style="background-color:gainsboro; width: 100%; height: 100vh">
-        <div class="col-12" style="padding: 7%  1%;">
-            <div class="row" style="padding: 1% 0%">
-                <div class="col-2" style="text-align: end; font-size: 1.5vw"><em>03/</em></div>
-                <div class="col-8" style="font-size: 2.3vw">Son una parte importante de nuestro
-                    éxito.
-                </div>
-                <div class="col-2"
+                <div
+                  class="col-12"
+                  style="text-align: center; height: 18vh; color: #9377ab"
                 >
-
+                  <p style="font-size: 2vw; font-weight: 400">HCI + SDDC</p>
+                  <p style="font-size: 0.8vw">
+                    Transformamos la infraestructura de TI para que sea definida
+                    por software que virtualiza todos los elmentos de los
+                    sistemas convencionales definidos por hardware.
+                  </p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
-                <div class="col-8" style=" font-size: 1.3vw"><em>Contribuyendo con sus servicios a
-                    generar alianzas estratégicas que nos permiten ofrecer mejores soluciones. </em></div>
-                <div class="col-2"
-                     style="display: flex; align-items: center; font-size: 1vw">
-                </div>
+              </div>
             </div>
 
-            <div class="row" style="padding: 3% 20%">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/Aruba.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/automation-anywhere.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/aws.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/azure.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/jamf.png"
-                                 style="width: 100%">
-                        </div>
-                    </div>
+            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+              <div class="row" style="background-color: #f3f2f3">
+                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
+                <div class="col-12" style="font-size: 1.5vw">
+                  <img
+                    src="assets/verticales/Seguridad.jpg"
+                    style="width: 100%"
+                  />
                 </div>
-
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/Aruba.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/automation-anywhere.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/aws.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/azure.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/jamf.png"
-                                 style="width: 100%">
-                        </div>
-                    </div>
+                <div
+                  class="col-12"
+                  style="text-align: center; height: 18vh; color: #9377ab"
+                >
+                  <p style="font-size: 2vw; font-weight: 400">SEGURIDAD</p>
+                  <p style="font-size: 0.8vw">
+                    Habilitamos y apoyamos en cada momento critico sobre las
+                    amenazas cibernéticas, antes y durante los eventos.
+                  </p>
                 </div>
-
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/Aruba.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/automation-anywhere.png"
-                                 style="width: 100%">
-                        </div>
-
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/aws.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/azure.png"
-                                 style="width: 100%">
-                        </div>
-                        <div class="col"
-                             style="  padding: 3%; display: flex; justify-content: center; align-items: center ">
-                            <img src="assets/partners/jamf.png"
-                                 style="width: 100%">
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+              <div class="row" style="background-color: #f3f2f3">
+                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
+                <div class="col-12" style="font-size: 1.5vw">
+                  <img
+                    src="assets/verticales/Usuario.jpg"
+                    style="width: 100%"
+                  />
+                </div>
+                <div
+                  class="col-12"
+                  style="text-align: center; height: 18vh; color: #9377ab"
+                >
+                  <p style="font-size: 2vw; font-weight: 400">USUARIO FINAL</p>
+                  <p style="font-size: 0.8vw">
+                    Nos aseguramos de que los usuarios, con distintos
+                    dispositivos, puedan acceder a sus aplicaciones y datos
+                    desde cualquier lugar y en cualquier momento.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="row"
+        style="
+          background-color: white;
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: end;
+          position: relative;
+        "
+      >
+        <div class="row" style="padding: 1% 0%; color: #3a3a3a">
+          <div class="col-2" style="text-align: end; font-size: 1.5vw">
+            <em>02/</em>
+          </div>
+          <div class="col-8" style="font-size: 2.3vw">Conócenos</div>
         </div>
 
+        <div class="row" style="padding: 5% 15%">
+          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+            <div style="height: 39vh; padding: 8%; background-color: #e3e3e4">
+              <div style="height: 100%; background-color: white">
+                <img
+                  class="conocenos_1"
+                  src="assets/conocenos/sellcom.png"
+                  alt=""
+                  width="18%"
+                />
+              </div>
+            </div>
+          </div>
 
+          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+            <div style="height: 39vh; padding: 8%; background-color: #c5c3c7">
+              <div style="height: 100%; background-color: white">
+                <img
+                  class="conocenos_2"
+                  src="assets/conocenos/premios.png"
+                  alt=""
+                  width="18%"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+            <div style="height: 39vh; padding: 8%; background-color: #cbc4d0">
+              <div style="height: 100%; background-color: white">
+                <img
+                  class="conocenos_3"
+                  src="assets/conocenos/contactanos.png"
+                  alt=""
+                  width="18%"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%; height: 100vh">
+        <iframe
+          src="https://aad8012.github.io/particles/"
+          style="width: 100%; height: 100%"
+          frameborder="0"
+        ></iframe>
+      </div>
+
+      <div
+        class="row"
+        style="background-color: gainsboro; width: 100%; height: 100vh"
+      >
+        <div class="col-12" style="padding: 7% 1%">
+          <div class="row" style="padding: 1% 0%">
+            <div class="col-2" style="text-align: end; font-size: 1.5vw">
+              <em>03/</em>
+            </div>
+            <div class="col-8" style="font-size: 2.3vw">
+              Son una parte importante de nuestro éxito.
+            </div>
+            <div class="col-2"></div>
+          </div>
+          <div class="row">
+            <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
+            <div class="col-8" style="font-size: 1.3vw">
+              <em
+                >Contribuyendo con sus servicios a generar alianzas estratégicas
+                que nos permiten ofrecer mejores soluciones.
+              </em>
+            </div>
+            <div
+              class="col-2"
+              style="display: flex; align-items: center; font-size: 1vw"
+            ></div>
+          </div>
+
+          <div class="row" style="padding: 3% 20%">
+            <div class="col-12">
+              <div class="row">
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/Aruba.png" style="width: 100%" />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img
+                    src="assets/partners/automation-anywhere.png"
+                    style="width: 100%"
+                  />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/aws.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/azure.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/jamf.png" style="width: 100%" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row">
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/Aruba.png" style="width: 100%" />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img
+                    src="assets/partners/automation-anywhere.png"
+                    style="width: 100%"
+                  />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/aws.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/azure.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/jamf.png" style="width: 100%" />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row">
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/Aruba.png" style="width: 100%" />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img
+                    src="assets/partners/automation-anywhere.png"
+                    style="width: 100%"
+                  />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/aws.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/azure.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/jamf.png" style="width: 100%" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="color: white; background-color: #343232">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4" style="display: flex; padding: 3% 5%">
+              <div style="margin-right: 5%;">
+                <img src="assets/redes/twitter.png" style="width: 100%" />
+              </div>
+              <div style="margin-right: 5%;">
+                <img src="assets/redes/youtube.png" style="width: 100%" />
+              </div>
+              <div style="margin-right: 5%;">
+                <img src="assets/redes/link.png" style="width: 100%" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-8" style="display: flex; padding: 10% 13%">
+              <div class="row">
+                <div class="col-12" style="">
+                  <p style="font-size: 1.5vw; text-align: end">Contáctanos</p>
+                  <p style="font-size: 3.5vw">SELLCOM SOLUTIONS</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-4"
+              style="display: flex; justify-content: start; align-items: center"
+            >
+              <div style="font-size: 1.5vw">Tel. 01 55 5293 8400</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-1"></div>
+            <div
+              class="col-6"
+              style="display: flex; justify-content: start; align-items: center"
+            >
+              <img
+                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Logo-Sellcom-Blanco.png"
+                style="width: 7%; margin-right: 10px"
+              />
+              <img
+                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/certificaci%C3%B3n.png"
+                style="width: 7%; margin-right: 10px"
+              />
+              <img
+                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/ISO_27001.png"
+                style="width: 7%; margin-right: 10px"
+              />
+              <img
+                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Intel.png"
+                style="width: 7%; margin-right: 10px"
+              />
+            </div>
+            <div class="col-5" style="display: flex; padding: 3% 5%">
+              <p>Aviso de Privacidad | Ayúdanos a mejorar</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="row" style="color: white; background-color: #343232">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-8" ></div>
-                <div class="col-4" style="display: flex; padding: 3% 5%;">
-                    <div>
-                        <img
-                                src="assets/redes/twitter.png"
-                                style="width: 30%"
-                        >
-                    </div>
-                    <div>
-                        <img
-                                src="assets/redes/youtube.png"
-                                style="width: 30%"
-                        >
-                    </div>
-                    <div>
-                        <img
-                                src="assets/redes/linkedin.png"
-                                style="width: 30%"
-                        >
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="row">
-                <div class="col-8" style=" display: flex; padding: 10% 13%">
-                    <div class="row">
+    <script type="text/javascript" src="third-party/Detector.js"></script>
+    <script type="text/javascript" src="third-party/three.min.js"></script>
+    <script type="text/javascript" src="third-party/Tween.js"></script>
+    <script type="text/javascript" src="globe.js"></script>
+    <script type="text/javascript">
+      window.addEventListener("scroll", function () {
+        var scrollPosition = window.scrollY;
+        console.log(scrollPosition);
+        var conocenos1 = document.querySelector(".conocenos_1");
+        var conocenos2 = document.querySelector(".conocenos_2");
+        var conocenos3 = document.querySelector(".conocenos_3");
 
+        if (scrollPosition > 1160 && scrollPosition < 1625) {
+          conocenos1.style.top = scrollPosition - 1160 + "px";
+          conocenos1.style.opacity = (scrollPosition - 1160) / (1625 - 1160);
 
-                        <div class="col-12" style="">
-                            <p style="font-size: 1.5vw ; text-align: end">Contáctanos</p>
-                            <p style="font-size: 3.5vw">SELLCOM SOLUTIONS</p>
-                        </div>
+          conocenos2.style.top = scrollPosition - 1160 + "px";
+          conocenos2.style.opacity = (scrollPosition - 1160) / (1625 - 1160);
 
-                    </div>
-
-
-                </div>
-                <div class="col-4" style="display: flex; justify-content: start; align-items: center">
-                    <div style="font-size: 1.5vw">
-                        Tel. 01 55 5293 8400
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="row">
-                <div class="col-1" ></div>
-                <div class="col-6"
-                     style="display: flex; justify-content: start; align-items: center">
-                    <img src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Logo-Sellcom-Blanco.png"
-                         style="width: 7%; margin-right: 10px">
-                    <img src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/certificaci%C3%B3n.png"
-                         style="width: 7% ;margin-right: 10px">
-                    <img src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/ISO_27001.png"
-                         style="width: 7% ;margin-right: 10px">
-                    <img src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Intel.png"
-                         style="width: 7% ;margin-right: 10px">
-                </div>
-                <div class="col-5" style="display: flex; padding: 3% 5%;">
-                    <p>Aviso de Privacidad | Ayúdanos a mejorar</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-
-<script type="text/javascript" src="third-party/Detector.js"></script>
-<script type="text/javascript" src="third-party/three.min.js"></script>
-<script type="text/javascript" src="third-party/Tween.js"></script>
-<script type="text/javascript" src="globe.js"></script>
-<script type="text/javascript">
-    if (!Detector.webgl) {
+          conocenos3.style.top = scrollPosition - 1160 + "px";
+          conocenos3.style.opacity = (scrollPosition - 1160) / (1625 - 1160);
+        }
+      });
+      if (!Detector.webgl) {
         Detector.addGetWebGLMessage();
-    } else {
+      } else {
         var years = ["1990", "1995", "2000"];
         var container = document.getElementById("container");
         var globe = new DAT.Globe(container);
 
         console.log(globe);
         var i,
-            tweens = [];
+          tweens = [];
 
         var settime = function (globe, t) {
-            return function () {
-                new TWEEN.Tween(globe)
-                    .to({time: t / years.length}, 500)
-                    .easing(TWEEN.Easing.Cubic.EaseOut)
-                    .start();
-                var y = document.getElementById("year" + years[t]);
-                if (y.getAttribute("class") === "year active") {
-                    return;
-                }
-                var yy = document.getElementsByClassName("year");
-                for (i = 0; i < yy.length; i++) {
-                    yy[i].setAttribute("class", "year");
-                }
-                y.setAttribute("class", "year active");
-            };
+          return function () {
+            new TWEEN.Tween(globe)
+              .to({ time: t / years.length }, 500)
+              .easing(TWEEN.Easing.Cubic.EaseOut)
+              .start();
+            var y = document.getElementById("year" + years[t]);
+            if (y.getAttribute("class") === "year active") {
+              return;
+            }
+            var yy = document.getElementsByClassName("year");
+            for (i = 0; i < yy.length; i++) {
+              yy[i].setAttribute("class", "year");
+            }
+            y.setAttribute("class", "year active");
+          };
         };
 
         for (var i = 0; i < years.length; i++) {
-            var y = document.getElementById("year" + years[i]);
-            y.addEventListener("mouseover", settime(globe, i), false);
+          var y = document.getElementById("year" + years[i]);
+          y.addEventListener("mouseover", settime(globe, i), false);
         }
 
         var xhr;
@@ -574,29 +740,31 @@
         xhr = new XMLHttpRequest();
         xhr.open("GET", "population909500.json", true);
         xhr.onreadystatechange = function (e) {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var data = JSON.parse(xhr.responseText);
-                    window.data = data;
-                    for (i = 0; i < data.length; i++) {
-                        globe.addData(data[i][1], {
-                            format: "magnitude",
-                            name: data[i][0],
-                            animated: true,
-                        });
-                    }
-                    globe.createPoints();
-                    settime(globe, 0)();
-                    globe.animate();
-                    document.body.style.backgroundImage = "none"; // remove loading
-                }
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              var data = JSON.parse(xhr.responseText);
+              window.data = data;
+              for (i = 0; i < data.length; i++) {
+                globe.addData(data[i][1], {
+                  format: "magnitude",
+                  name: data[i][0],
+                  animated: true,
+                });
+              }
+              globe.createPoints();
+              settime(globe, 0)();
+              globe.animate();
+              document.body.style.backgroundImage = "none"; // remove loading
             }
+          }
         };
         xhr.send(null);
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
