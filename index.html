@@ -112,6 +112,49 @@
         transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
         opacity: 0;
       }
+
+      .container-img {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+      background-position: center;
+        will-change: transform;
+        transition: transform 0.5s linear;
+      }
+
+      .image-container_zoom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        will-change: transform;
+        transition: transform 1s ease-out; /* Transición más larga para el zoom */
+      }
+      .image1 {
+        background-image: url("assets/1.png");
+        z-index: 1;
+      }
+
+      .image2 {
+        background-image: url("assets/3.png");
+        z-index: 2;
+        transform-origin: center center;
+      }
     </style>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -436,11 +479,22 @@
                   "
                 >
                   <img
-                    src="assets/partners/automation-anywhere.png"
+                    src="assets/partners/Assac.png"
                     style="width: 100%"
                   />
                 </div>
 
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/automation-anywhere.png" style="width: 100%" />
+                </div>
                 <div
                   class="col"
                   style="
@@ -462,17 +516,6 @@
                   "
                 >
                   <img src="assets/partners/azure.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/jamf.png" style="width: 100%" />
                 </div>
               </div>
             </div>
@@ -488,7 +531,7 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/Aruba.png" style="width: 100%" />
+                  <img src="assets/partners/Blancco.png" style="width: 100%" />
                 </div>
 
                 <div
@@ -501,7 +544,7 @@
                   "
                 >
                   <img
-                    src="assets/partners/automation-anywhere.png"
+                    src="assets/partners/Hitachi-05.png"
                     style="width: 100%"
                   />
                 </div>
@@ -515,18 +558,7 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/aws.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/azure.png" style="width: 100%" />
+                  <img src="assets/partners/Intel.png" style="width: 100%" />
                 </div>
                 <div
                   class="col"
@@ -538,6 +570,17 @@
                   "
                 >
                   <img src="assets/partners/jamf.png" style="width: 100%" />
+                </div>
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img src="assets/partners/logo-qlik_bn.png" style="width: 100%" />
                 </div>
               </div>
             </div>
@@ -553,7 +596,7 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/Aruba.png" style="width: 100%" />
+                  <img src="assets/partners/NetApp_BCO.png" style="width: 100%" />
                 </div>
 
                 <div
@@ -566,7 +609,7 @@
                   "
                 >
                   <img
-                    src="assets/partners/automation-anywhere.png"
+                    src="assets/partners/nutanix.png"
                     style="width: 100%"
                   />
                 </div>
@@ -580,7 +623,7 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/aws.png" style="width: 100%" />
+                  <img src="assets/partners/Power_bi_BCO.png" style="width: 70%" />
                 </div>
                 <div
                   class="col"
@@ -591,7 +634,7 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/azure.png" style="width: 100%" />
+                  <img src="assets/partners/Red Hat.png" style="width: 100%" />
                 </div>
                 <div
                   class="col"
@@ -602,12 +645,17 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/jamf.png" style="width: 100%" />
+                  <img src="assets/partners/ServiceNow.png" style="width: 100%" />
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="container-img">
+        <div class="image-container_zoom image1"></div>
+        <div class="image-container image2"></div>
       </div>
 
       <div
@@ -685,6 +733,29 @@
     <script type="text/javascript" src="third-party/Tween.js"></script>
     <script type="text/javascript" src="globe.js"></script>
     <script type="text/javascript">
+      let isZoomed = false;
+
+      window.addEventListener("scroll", function () {
+        const scrollValue = window.scrollY;
+        const scaleValue = 75;
+        const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
+
+        console.log(sectionsScrolled);
+        if (sectionsScrolled > 4.8 && !isZoomed) {
+          document.querySelector(".image2").style.transition =
+            "transform 3s ease-in"; /* Ajusta la duración de la transición aquí */
+          document.querySelector(
+            ".image2"
+          ).style.transform = `scale(${scaleValue})`;
+          isZoomed = true;
+        } else if (sectionsScrolled <= 4.8 && isZoomed) {
+          document.querySelector(".image2").style.transition =
+            "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
+          document.querySelector(".image2").style.transform = "scale(1)";
+          isZoomed = false;
+        }
+      });
+
       window.addEventListener("scroll", function () {
         var scrollPosition = window.scrollY;
         console.log(scrollPosition);
