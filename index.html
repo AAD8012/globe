@@ -128,7 +128,7 @@
         height: 100vh;
         background-size: cover;
         background-repeat: no-repeat;
-      background-position: center;
+        background-position: center;
         will-change: transform;
         transition: transform 0.5s linear;
       }
@@ -146,14 +146,66 @@
         transition: transform 1s ease-out; /* Transición más larga para el zoom */
       }
       .image1 {
-        background-image: url("assets/1.png");
         z-index: 1;
       }
 
       .image2 {
-        background-image: url("assets/3.png");
+        background-image: url("3.png");
         z-index: 2;
         transform-origin: center center;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @keyframes appearFromBottom {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .letrasConEfectoVideo h1 {
+        overflow: hidden;
+        position: relative;
+        font-size: 4vw !important;
+        color: white;
+      }
+
+      .letrasConEfectoVideo h1 span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: appearFromBottom 0.5s forwards;
+        animation-delay: calc(0.5s * var(--index));
+      }
+      .navbar {
+        justify-content: center;
+      }
+
+      /* Centrar los elementos de la barra de navegación */
+      .navbar-nav {
+        text-align: center;
+      }
+
+      .navbar-collapse {
+        justify-content: center;
+      }
+
+      .btn-next {
+        position: absolute;
+        top: 41%;
+        right: 215%;
+        color: black;
+      }
+      .btn-prev {
+        position: absolute;
+        top: 41%;
+        left: 215%;
+        color: black;
       }
     </style>
     <link
@@ -174,7 +226,7 @@
     />
   </head>
   <body>
-    <div style="position: relative; height: 100vh">
+    <div id="globe-hero" style="position: relative; height: 100vh">
       <div id="container"></div>
 
       <div id="currentInfo">
@@ -218,6 +270,7 @@
 
     <div style="width: 100%">
       <div
+        id="navbar"
         class="row"
         style="
           padding: 0% 19%;
@@ -228,19 +281,227 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          background-color: white;
         "
       >
         <div class="col-1" style="margin: auto">
-          <img src="assets/flecha-correcta.png" style="width: 40%" />
+          <a href="#globe-hero">
+            <img
+              id="miImagen"
+              src="assets/flecha-derecha.png"
+              style="width: 40%"
+          /></a>
         </div>
-        <div class="col">Verticales de negocio</div>
-        <div class="col">Conócenos</div>
-        <div class="col">Transformando el mundo</div>
-        <div class="col">Nuestros partner</div>
-        <div class="col">Lider en TI</div>
-        <div class="col">Aviso de privacidad</div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="verticales"
+            style="
+              background-color: red;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Verticales de negocio
+          </div>
+        </div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="conocenos"
+            style="
+              background-color: orange;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Conócenos
+          </div>
+        </div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="transformandoElMundo"
+            style="
+              background-color: red;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Transformando el mundo
+          </div>
+        </div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="nuestrosParther"
+            style="
+              background-color: orange;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Nuestros partner
+          </div>
+        </div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="liderEnTi"
+            style="
+              background-color: red;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Lider en TI
+          </div>
+        </div>
+        <div class="col" style="position: relative; height: 100%">
+          <div
+            id="avisoDePrivacidad"
+            style="
+              background-color: orange;
+              position: absolute;
+              width: 0%;
+              height: 100%;
+            "
+          ></div>
+          <div
+            style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            Aviso de privacidad
+          </div>
+        </div>
       </div>
 
+      <div
+        class="modal fade"
+        id="exampleModalToggle"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel"
+        tabindex="-1"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                Verticales de Negocio
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">menu con las verticales de negocio</div>
+            <!-- <div class="modal-footer">
+            <button
+              class="btn btn-primary"
+              data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal"
+            >
+              Open second modal
+            </button>
+          </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModalToggle2"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel2"
+        tabindex="-1"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                Modal 2
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+              <button
+                class="btn btn-primary"
+                data-bs-target="#exampleModalToggle"
+                data-bs-toggle="modal"
+              >
+                Back to first
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- carrucel -->
       <div
         class="row"
         style="background-color: #e3e3e4; width: 100%; height: 100vh"
@@ -260,7 +521,10 @@
                 align-items: center;
                 font-size: 1vw;
                 color: #9377ab;
+                cursor: pointer;
               "
+              data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal"
             >
               <div
                 style="
@@ -271,6 +535,7 @@
                   margin-right: 5px;
                 "
               ></div>
+
               <div>VER TODO</div>
             </div>
           </div>
@@ -288,71 +553,287 @@
             ></div>
           </div>
 
-          <div class="row">
-            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-              <div class="row" style="background-color: #f3f2f3">
-                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
-                <div class="col-12" style="font-size: 1.5vw">
-                  <img src="assets/verticales/HCI.jpg" style="width: 100%" />
-                </div>
-                <div
-                  class="col-12"
-                  style="text-align: center; height: 18vh; color: #9377ab"
-                >
-                  <p style="font-size: 2vw; font-weight: 400">HCI + SDDC</p>
-                  <p style="font-size: 0.8vw">
-                    Transformamos la infraestructura de TI para que sea definida
-                    por software que virtualiza todos los elmentos de los
-                    sistemas convencionales definidos por hardware.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/HCI.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">
+                          HCI + SDDC
+                        </p>
+                        <p style="font-size: 0.8vw">
+                          Transformamos la infraestructura de TI para que sea
+                          definida por software que virtualiza todos los
+                          elmentos de los sistemas convencionales definidos por
+                          hardware.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-              <div class="row" style="background-color: #f3f2f3">
-                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
-                <div class="col-12" style="font-size: 1.5vw">
-                  <img
-                    src="assets/verticales/Seguridad.jpg"
-                    style="width: 100%"
-                  />
-                </div>
-                <div
-                  class="col-12"
-                  style="text-align: center; height: 18vh; color: #9377ab"
-                >
-                  <p style="font-size: 2vw; font-weight: 400">SEGURIDAD</p>
-                  <p style="font-size: 0.8vw">
-                    Habilitamos y apoyamos en cada momento critico sobre las
-                    amenazas cibernéticas, antes y durante los eventos.
-                  </p>
-                </div>
-              </div>
-            </div>
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Seguridad.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">
+                          SEGURIDAD
+                        </p>
+                        <p style="font-size: 0.8vw">
+                          Habilitamos y apoyamos en cada momento critico sobre
+                          las amenazas cibernéticas, antes y durante los
+                          eventos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-              <div class="row" style="background-color: #f3f2f3">
-                <div class="col-12" style="font-size: 1.5vw; height: 5vh"></div>
-                <div class="col-12" style="font-size: 1.5vw">
-                  <img
-                    src="assets/verticales/Usuario.jpg"
-                    style="width: 100%"
-                  />
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Usuario.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">
+                          USUARIO FINAL
+                        </p>
+                        <p style="font-size: 0.8vw">
+                          Nos aseguramos de que los usuarios, con distintos
+                          dispositivos, puedan acceder a sus aplicaciones y
+                          datos desde cualquier lugar y en cualquier momento.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="col-12"
-                  style="text-align: center; height: 18vh; color: #9377ab"
-                >
-                  <p style="font-size: 2vw; font-weight: 400">USUARIO FINAL</p>
-                  <p style="font-size: 0.8vw">
-                    Nos aseguramos de que los usuarios, con distintos
-                    dispositivos, puedan acceder a sus aplicaciones y datos
-                    desde cualquier lugar y en cualquier momento.
-                  </p>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Datos.png"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">DATOS</p>
+                        <p style="font-size: 0.8vw">
+                          Podemos conectar a los creadores y consumidores de
+                          datos sin dificultades para analizar datos de manera
+                          rápida y aprovechar todo el valor que ofrecen.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Procesos.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">PROCESOS</p>
+                        <p style="font-size: 0.8vw">
+                          Desarrollamos Flujos de Trabajo Digitales, conectamos
+                          personas, funciones y sistemas en todas las áreas de
+                          negocio.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Nube.png"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">NUBE</p>
+                        <p style="font-size: 0.8vw">
+                          Conoce como libramos a nuestros clientes de la
+                          complejidad y el costo de la TI tradicional mediante
+                          el poder de la nube híbrida o total.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="row">
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Redes.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">REDES</p>
+                        <p style="font-size: 0.8vw">
+                          Creamos nuevas formas de interactuar con los usuarios
+                          aprovechando las redes tecnológicas, monitoreo e
+                          interpretación de datos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <div class="row" style="background-color: #f3f2f3">
+                      <div
+                        class="col-12"
+                        style="font-size: 1.5vw; height: 5vh"
+                      ></div>
+                      <div class="col-12" style="font-size: 1.5vw">
+                        <img
+                          src="assets/verticales/Monitoreo.jpg"
+                          style="width: 100%"
+                        />
+                      </div>
+                      <div
+                        class="col-12"
+                        style="text-align: center; height: 18vh; color: #9377ab"
+                      >
+                        <p style="font-size: 2vw; font-weight: 400">
+                          MONITOREO
+                        </p>
+                        <p style="font-size: 0.8vw">
+                          Llevamos a cabo acciones proactivas y preventivas, así
+                          como análisis predictivos de datos que aseguren la
+                          disponibilidad de los procesos de negocio.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                    <!-- <div class="row" style="background-color: #f3f2f3">
+                    <div
+                      class="col-12"
+                      style="font-size: 1.5vw; height: 5vh"
+                    ></div>
+                    <div class="col-12" style="font-size: 1.5vw">
+                      <img
+                        src="assets/verticales/Usuario.jpg"
+                        style="width: 100%"
+                      />
+                    </div>
+                    <div
+                      class="col-12"
+                      style="text-align: center; height: 18vh; color: #9377ab"
+                    >
+                      <p style="font-size: 2vw; font-weight: 400">
+                        USUARIO FINAL
+                      </p>
+                      <p style="font-size: 0.8vw">
+                        Nos aseguramos de que los usuarios, con distintos
+                        dispositivos, puedan acceder a sus aplicaciones y datos
+                        desde cualquier lugar y en cualquier momento.
+                      </p>
+                    </div>
+                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon btn-prev"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExample"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon btn-next"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
@@ -478,10 +959,7 @@
                     align-items: center;
                   "
                 >
-                  <img
-                    src="assets/partners/Assac.png"
-                    style="width: 100%"
-                  />
+                  <img src="assets/partners/Assac.png" style="width: 100%" />
                 </div>
 
                 <div
@@ -493,7 +971,10 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/automation-anywhere.png" style="width: 100%" />
+                  <img
+                    src="assets/partners/automation-anywhere.png"
+                    style="width: 100%"
+                  />
                 </div>
                 <div
                   class="col"
@@ -580,7 +1061,10 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/logo-qlik_bn.png" style="width: 100%" />
+                  <img
+                    src="assets/partners/logo-qlik_bn.png"
+                    style="width: 100%"
+                  />
                 </div>
               </div>
             </div>
@@ -596,20 +1080,8 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/NetApp_BCO.png" style="width: 100%" />
-                </div>
-
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
                   <img
-                    src="assets/partners/nutanix.png"
+                    src="assets/partners/NetApp_BCO.png"
                     style="width: 100%"
                   />
                 </div>
@@ -623,7 +1095,22 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/Power_bi_BCO.png" style="width: 70%" />
+                  <img src="assets/partners/nutanix.png" style="width: 100%" />
+                </div>
+
+                <div
+                  class="col"
+                  style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <img
+                    src="assets/partners/Power_bi_BCO.png"
+                    style="width: 70%"
+                  />
                 </div>
                 <div
                   class="col"
@@ -645,7 +1132,10 @@
                     align-items: center;
                   "
                 >
-                  <img src="assets/partners/ServiceNow.png" style="width: 100%" />
+                  <img
+                    src="assets/partners/ServiceNow.png"
+                    style="width: 100%"
+                  />
                 </div>
               </div>
             </div>
@@ -654,7 +1144,29 @@
       </div>
 
       <div class="container-img">
-        <div class="image-container_zoom image1"></div>
+        <div class="image-container_zoom image1">
+          <video src="video.mp4" controls autoplay muted loop></video>
+        </div>
+        <div
+          style="
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 40%;
+            color: #463c4f;
+            font-weight: 500;
+            z-index: 1;
+          "
+          class="letrasConEfectoVideo"
+        >
+          <h1>
+            <span style="--index: 1">Transformando</span>
+
+            <span style="--index: 2">el</span>
+
+            <span style="--index: 3">mundo digital</span>
+          </h1>
+        </div>
         <div class="image-container image2"></div>
       </div>
 
@@ -733,6 +1245,154 @@
     <script type="text/javascript" src="third-party/Tween.js"></script>
     <script type="text/javascript" src="globe.js"></script>
     <script type="text/javascript">
+      document.addEventListener("scroll", function () {
+        const scrollValue = window.scrollY;
+        const sectionsScrolled = scrollValue / window.innerHeight;
+        console.log(sectionsScrolled);
+        if (sectionsScrolled > 0 && sectionsScrolled < 1) {
+          var conocenos = document.getElementById("conocenos");
+          var transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          var nuestrosParther = document.getElementById("nuestrosParther");
+          var liderEnTi = document.getElementById("liderEnTi");
+          var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
+          conocenos.style.width = "0";
+          transformandoElMundo.style.width = "0";
+          nuestrosParther.style.width = "0";
+          liderEnTi.style.width = "0";
+          avisoDePrivacidad.style.width = "0";
+          const porcentajeAncho = sectionsScrolled * 100;
+          const verticales = document.getElementById("verticales");
+          verticales.style.width = porcentajeAncho + "%";
+        }
+
+        if (sectionsScrolled > 1 && sectionsScrolled < 2) {
+          var verticales = document.getElementById("verticales");
+          var transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          var nuestrosParther = document.getElementById("nuestrosParther");
+          var liderEnTi = document.getElementById("liderEnTi");
+          var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
+          verticales.style.width = "0";
+          transformandoElMundo.style.width = "0";
+          nuestrosParther.style.width = "0";
+          liderEnTi.style.width = "0";
+          avisoDePrivacidad.style.width = "0";
+          const porcentajeAncho = (sectionsScrolled - 1) * 100;
+          const conocenos = document.getElementById("conocenos");
+          conocenos.style.width = porcentajeAncho + "%";
+        }
+
+        if (sectionsScrolled > 2 && sectionsScrolled < 3) {
+          var verticales = document.getElementById("verticales");
+          var conocenos = document.getElementById("conocenos");
+          var nuestrosParther = document.getElementById("nuestrosParther");
+          var liderEnTi = document.getElementById("liderEnTi");
+          var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
+          verticales.style.width = "0";
+          conocenos.style.width = "0";
+          nuestrosParther.style.width = "0";
+          liderEnTi.style.width = "0";
+          avisoDePrivacidad.style.width = "0";
+          const porcentajeAncho = (sectionsScrolled - 2) * 100;
+          const transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          transformandoElMundo.style.width = porcentajeAncho + "%";
+        }
+
+        if (sectionsScrolled > 3 && sectionsScrolled < 4) {
+          var verticales = document.getElementById("verticales");
+          var conocenos = document.getElementById("conocenos");
+          var transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          var liderEnTi = document.getElementById("liderEnTi");
+          var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
+          verticales.style.width = "0";
+          conocenos.style.width = "0";
+          transformandoElMundo.style.width = "0";
+          liderEnTi.style.width = "0";
+          avisoDePrivacidad.style.width = "0";
+          const porcentajeAncho = (sectionsScrolled - 3) * 100;
+          const nuestrosParther = document.getElementById("nuestrosParther");
+          nuestrosParther.style.width = porcentajeAncho + "%";
+        }
+
+        if (sectionsScrolled > 4 && sectionsScrolled < 5) {
+          var verticales = document.getElementById("verticales");
+          var conocenos = document.getElementById("conocenos");
+          var transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          var nuestrosParther = document.getElementById("nuestrosParther");
+          var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
+          verticales.style.width = "0";
+          conocenos.style.width = "0";
+          transformandoElMundo.style.width = "0";
+          nuestrosParther.style.width = "0";
+          avisoDePrivacidad.style.width = "0";
+          const porcentajeAncho = (sectionsScrolled - 4) * 100;
+          const liderEnTi = document.getElementById("liderEnTi");
+          liderEnTi.style.width = porcentajeAncho + "%";
+        }
+        if (sectionsScrolled > 5 && sectionsScrolled < 6) {
+          var verticales = document.getElementById("verticales");
+          var conocenos = document.getElementById("conocenos");
+          var transformandoElMundo = document.getElementById(
+            "transformandoElMundo"
+          );
+          var nuestrosParther = document.getElementById("nuestrosParther");
+          var liderEnTi = document.getElementById("liderEnTi");
+          verticales.style.width = "0";
+          conocenos.style.width = "0";
+          transformandoElMundo.style.width = "0";
+          nuestrosParther.style.width = "0";
+          liderEnTi.style.width = "0";
+          const porcentajeAncho = (sectionsScrolled - 5) * 100;
+          const avisoDePrivacidad =
+            document.getElementById("avisoDePrivacidad");
+          avisoDePrivacidad.style.width = porcentajeAncho + "%";
+        }
+      });
+
+      document.addEventListener("scroll", function () {
+        // Obtén el valor de desplazamiento
+        const scrollValue = window.scrollY;
+        const sectionsScrolled = scrollValue / window.innerHeight;
+
+        // Obtén el elemento de la imagen por su ID
+        var miImagen = document.getElementById("miImagen");
+
+        // Cambia la imagen según el valor de desplazamiento
+        if (sectionsScrolled > 1) {
+          miImagen.src = "assets/flecha-hacia-arriba.png"; // Reemplaza "nueva-imagen.jpg" con la ruta de tu nueva imagen
+        } else {
+          miImagen.src = "assets/flecha-derecha.png"; // Vuelve a la imagen original si el scroll está por debajo del umbral
+        }
+      });
+
+      var miElemento = document.getElementById("navbar");
+
+      window.addEventListener("scroll", function () {
+        const scrollValue = window.scrollY;
+        const sectionsScrolled = scrollValue / window.innerHeight;
+
+        if (
+          sectionsScrolled > 1 &&
+          !miElemento.classList.contains("fixed-top")
+        ) {
+          miElemento.classList.add("fixed-top");
+        } else if (
+          sectionsScrolled <= 1 &&
+          miElemento.classList.contains("fixed-top")
+        ) {
+          miElemento.classList.remove("fixed-top");
+        }
+      });
+
       let isZoomed = false;
 
       window.addEventListener("scroll", function () {
@@ -741,14 +1401,14 @@
         const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
         console.log(sectionsScrolled);
-        if (sectionsScrolled > 4.8 && !isZoomed) {
+        if (sectionsScrolled > 4.7 && !isZoomed) {
           document.querySelector(".image2").style.transition =
             "transform 3s ease-in"; /* Ajusta la duración de la transición aquí */
           document.querySelector(
             ".image2"
           ).style.transform = `scale(${scaleValue})`;
           isZoomed = true;
-        } else if (sectionsScrolled <= 4.8 && isZoomed) {
+        } else if (sectionsScrolled <= 4.7 && isZoomed) {
           document.querySelector(".image2").style.transition =
             "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
           document.querySelector(".image2").style.transform = "scale(1)";
@@ -758,7 +1418,7 @@
 
       window.addEventListener("scroll", function () {
         var scrollPosition = window.scrollY;
-        console.log(scrollPosition);
+
         var conocenos1 = document.querySelector(".conocenos_1");
         var conocenos2 = document.querySelector(".conocenos_2");
         var conocenos3 = document.querySelector(".conocenos_3");
@@ -781,7 +1441,6 @@
         var container = document.getElementById("container");
         var globe = new DAT.Globe(container);
 
-        console.log(globe);
         var i,
           tweens = [];
 
