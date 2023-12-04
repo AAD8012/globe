@@ -207,9 +207,15 @@
         left: 215%;
         color: black;
       }
-
-      .carousel-control-next-icon {
-        background-image: url("./assets/derecha.png");
+      #menu_1 {
+        transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
+        font-size: 1.5vw;
+        border-radius: 10px;
+      }
+      #menu_1:hover {
+        background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
+        border-radius: 10px;
+        color: white;
       }
     </style>
     <link
@@ -235,6 +241,7 @@
       .carousel-control-prev-icon {
         background-image: url("./assets/izquierda.png");
       }
+    
     </style>
   </head>
   <body>
@@ -451,12 +458,9 @@
         aria-labelledby="exampleModalToggleLabel"
         tabindex="-1"
       >
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered" style="width: 50%; max-width: none;">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-                Verticales de Negocio
-              </h1>
               <button
                 type="button"
                 class="btn-close"
@@ -464,7 +468,123 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">menu con las verticales de negocio</div>
+
+            <div class="row">
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>01/</em></span> HCI + SDDC
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>02/</em></span> SEGURIDAD
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>03/</em></span> USUARIO
+                  FINAL
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>04/</em></span> DATOS
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>05/</em></span> PROCESOS
+                </p>
+              </div>
+
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>06/</em></span> NUBE
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>07/</em></span> REDES
+                </p>
+              </div>
+              <div
+                id="menu_1"
+                class="col-12"
+                style="
+                  height: 10vh;
+                  display: flex;
+                  justify-content: start;
+                  align-items: end;
+                "
+              >
+                <p>
+                  <span style="font-size: 1vw"> <em>08/</em></span> MONITOREO
+                </p>
+              </div>
+            </div>
             <!-- <div class="modal-footer">
             <button
               class="btn btn-primary"
