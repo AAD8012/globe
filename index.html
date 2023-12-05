@@ -1,254 +1,455 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <title>sellcom</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <style type="text/css">
-      body {
-        margin: 0;
-        padding: 0;
-        background: white url(loading.gif) center center no-repeat;
-        color: #ffffff;
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        height: 100%;
-      }
-
-      #currentInfo {
-        width: 100%;
-        position: absolute;
-        top: 93%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      a {
-        color: #aaa;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      .year {
-        text-align: center;
-        color: rgba(255, 255, 255, 0.4);
-        cursor: pointer;
-        font-size: 1.5vw;
-        color: #9da5aa;
-        margin-right: 20px;
-      }
-
-      .year:hover {
-        color: #3a3a3a;
-      }
-
-      #ce span {
-        display: none;
-      }
-
-      @keyframes appearFromBottom {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        body {
+            margin: 0;
+            padding: 0;
+            background: white url(loading.gif) center center no-repeat;
+            color: #ffffff;
+            font-family: "Montserrat", sans-serif;
+            font-size: 13px;
+            height: 100%;
         }
-      }
 
-      h1 {
-        overflow: hidden;
-        position: relative;
-        font-size: 4vw !important;
-      }
-
-      h1 span {
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(100%);
-        animation: appearFromBottom 0.5s forwards;
-        animation-delay: calc(0.5s * var(--index));
-      }
-
-      canvas {
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important;
-      }
-
-      .btn-view-all div:first-child {
-        transition: background-color 0.3s ease;
-      }
-
-      .btn-view-all:hover div:first-child {
-        background-color: #9377ab;
-      }
-
-      .rojo {
-        border: solid red 1px;
-      }
-
-      .conocenos_1 {
-        position: absolute;
-        top: 0;
-        left: 20%;
-        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-        opacity: 0;
-      }
-
-      .conocenos_2 {
-        position: absolute;
-        top: 0;
-        left: 41%;
-        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-        opacity: 0;
-      }
-
-      .conocenos_3 {
-        position: absolute;
-        top: 0;
-        left: 65%;
-        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-        opacity: 0;
-      }
-
-      .container-img {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow: hidden;
-      }
-
-      .image-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        will-change: transform;
-        transition: transform 0.5s linear;
-      }
-
-      .image-container_zoom {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        will-change: transform;
-        transition: transform 1s ease-out; /* Transición más larga para el zoom */
-      }
-      .image1 {
-        z-index: 1;
-      }
-
-      .image2 {
-        background-image: url("3.png");
-        z-index: 2;
-        transform-origin: center center;
-      }
-
-      video {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      @keyframes appearFromBottom {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        #currentInfo {
+            width: 100%;
+            position: absolute;
+            top: 93%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-      }
 
-      .letrasConEfectoVideo h1 {
-        overflow: hidden;
-        position: relative;
-        font-size: 4vw !important;
-        color: white;
-      }
+        a {
+            color: #aaa;
+            text-decoration: none;
+        }
 
-      .letrasConEfectoVideo h1 span {
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(100%);
-        animation: appearFromBottom 0.5s forwards;
-        animation-delay: calc(0.5s * var(--index));
-      }
-      .navbar {
-        justify-content: center;
-      }
+        a:hover {
+            text-decoration: underline;
+        }
 
-      /* Centrar los elementos de la barra de navegación */
-      .navbar-nav {
-        text-align: center;
-      }
+        .year {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            font-size: 1.5vw;
+            color: #9da5aa;
+            margin-right: 20px;
+        }
 
-      .navbar-collapse {
-        justify-content: center;
-      }
+        .year:hover {
+            color: #3a3a3a;
+        }
 
-      .btn-next {
-        position: absolute;
-        top: 41%;
-        right: 215%;
-        color: black;
-      }
-      .btn-prev {
-        position: absolute;
-        top: 41%;
-        left: 215%;
-        color: black;
-      }
-      #menu_1 {
-        transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
-        font-size: 1.5vw;
-        border-radius: 10px;
-      }
-      #menu_1:hover {
-        background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
-        border-radius: 10px;
-        color: white;
-      }
+        #ce span {
+            display: none;
+        }
+
+        @keyframes appearFromBottom {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            overflow: hidden;
+            position: relative;
+            font-size: 4vw !important;
+        }
+
+        h1 span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: appearFromBottom 0.5s forwards;
+            animation-delay: calc(0.5s * var(--index));
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+            position: relative !important;
+        }
+
+        .btn-view-all div:first-child {
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-view-all:hover div:first-child {
+            background-color: #9377ab;
+        }
+
+
+        .conocenos_1 {
+            position: absolute;
+            top: 0;
+            left: 20%;
+            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+            opacity: 0;
+        }
+
+        .conocenos_2 {
+            position: absolute;
+            top: 0;
+            left: 41%;
+            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+            opacity: 0;
+        }
+
+        .conocenos_3 {
+            position: absolute;
+            top: 0;
+            left: 65%;
+            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+            opacity: 0;
+        }
+
+        .container-img {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            will-change: transform;
+            transition: transform 0.5s linear;
+        }
+
+        .image-container_zoom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            will-change: transform;
+            transition: transform 1s ease-out; /* Transición más larga para el zoom */
+        }
+
+        .image1 {
+            z-index: 1;
+        }
+
+        .image2 {
+            background-image: url("3.png");
+            z-index: 2;
+            transform-origin: center center;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes appearFromBottom {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .letrasConEfectoVideo h1 {
+            overflow: hidden;
+            position: relative;
+            font-size: 4vw !important;
+            color: white;
+        }
+
+        .letrasConEfectoVideo h1 span {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: appearFromBottom 0.5s forwards;
+            animation-delay: calc(0.5s * var(--index));
+        }
+
+
+        .btn-next {
+            position: absolute;
+            top: 41%;
+            right: 215%;
+            color: black;
+        }
+
+        .btn-prev {
+            position: absolute;
+            top: 41%;
+            left: 215%;
+            color: black;
+        }
+
+        #menu_1 {
+            transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
+            font-size: 1.5vw;
+            border-radius: 10px;
+        }
+
+        #menu_1:hover {
+            background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
+            border-radius: 10px;
+            color: white;
+        }
+
+        #image_1 {
+            display: none;
+        }
+
+        #aruba:hover {
+            #image_1 {
+                display: block;
+            }
+
+            #image_2 {
+                display: none;
+            }
+        }
+
+        #image_3 {
+            display: none;
+        }
+
+        #assac:hover {
+            #image_3 {
+                display: block;
+            }
+
+            #image_4 {
+                display: none;
+            }
+        }
+
+        #image_5 {
+            display: none;
+        }
+
+        #automotion:hover {
+            #image_5 {
+                display: block;
+            }
+
+            #image_6 {
+                display: none;
+            }
+        }
+
+        #image_7 {
+            display: none;
+        }
+
+        #aws:hover {
+            #image_7 {
+                display: block;
+            }
+
+            #image_8 {
+                display: none;
+            }
+        }
+
+        #image_9 {
+            display: none;
+        }
+
+        #azure:hover {
+            #image_9 {
+                display: block;
+            }
+
+            #image_10 {
+                display: none;
+            }
+        }
+
+        #image_11 {
+            display: none;
+        }
+
+        #blanco:hover {
+            #image_11 {
+                display: block;
+            }
+
+            #image_12 {
+                display: none;
+            }
+        }
+
+        #image_13 {
+            display: none;
+        }
+
+        #hitachi:hover {
+            #image_13 {
+                display: block;
+            }
+
+            #image_14 {
+                display: none;
+            }
+        }
+
+        #image_15 {
+            display: none;
+        }
+
+        #intel:hover {
+            #image_15 {
+                display: block;
+            }
+
+            #image_16 {
+                display: none;
+            }
+        }
+
+        #image_17 {
+            display: none;
+        }
+
+        #jamf:hover {
+            #image_17 {
+                display: block;
+            }
+
+            #image_18 {
+                display: none;
+            }
+        }
+
+        #image_19 {
+            display: none;
+        }
+
+        #qlink:hover {
+            #image_19 {
+                display: block;
+            }
+
+            #image_20 {
+                display: none;
+            }
+        }
+
+        #image_21 {
+            display: none;
+        }
+
+        #net:hover {
+            #image_21 {
+                display: block;
+            }
+
+            #image_22 {
+                display: none;
+            }
+        }
+
+        #image_23 {
+            display: none;
+        }
+
+        #nut:hover {
+            #image_23 {
+                display: block;
+            }
+
+            #image_24 {
+                display: none;
+            }
+        }
+
+        #image_25 {
+            display: none;
+        }
+
+        #power:hover {
+            #image_25 {
+                display: block;
+            }
+
+            #image_26 {
+                display: none;
+            }
+        }
+
+        #image_27 {
+            display: none;
+        }
+
+        #red:hover {
+            #image_27 {
+                display: block;
+            }
+
+            #image_28 {
+                display: none;
+            }
+        }
+
+        #image_29 {
+            display: none;
+        }
+
+        #service:hover {
+            #image_29 {
+                display: block;
+            }
+
+            #image_30 {
+                display: none;
+            }
+        }
     </style>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
     />
     <style>
-      .carousel-control-next-icon {
-        background-image: url("./assets/derecha.png");
-      }
-      .carousel-control-prev-icon {
-        background-image: url("./assets/izquierda.png");
-      }
-    
-    </style>
-  </head>
-  <body>
-    <div id="globe-hero" style="position: relative; height: 100vh">
-      <div id="container"></div>
+        .carousel-control-next-icon {
+            background-image: url("./assets/derecha.png");
+        }
 
-      <div id="currentInfo">
+        .carousel-control-prev-icon {
+            background-image: url("./assets/izquierda.png");
+        }
+
+    </style>
+</head>
+<body>
+<div id="globe-hero" style="position: relative; height: 100vh">
+    <div id="container"></div>
+
+    <div id="currentInfo">
         <span id="year1990" class="year">HCI + SPDC |</span>
         <span id="year1995" class="year">Nube |</span>
         <span id="year2000" class="year">Seguridad |</span>
@@ -257,10 +458,10 @@
         <span id="year3" class="year">Datos |</span>
         <span id="year4" class="year">Redes |</span>
         <span id="year5" class="year">Usuario Final</span>
-      </div>
+    </div>
 
-      <div
-        style="
+    <div
+            style="
           text-align: center;
           position: absolute;
           width: 100%;
@@ -268,30 +469,30 @@
           color: #463c4f;
           font-weight: 500;
         "
-        class="letrasConEfecto"
-      >
+            class="letrasConEfecto"
+    >
         <h1>
-          <span style="--index: 1">Transformación</span>
+            <span style="--index: 1">Transformación</span>
 
-          <span style="--index: 2">Sin</span>
+            <span style="--index: 2">Sin</span>
 
-          <span style="--index: 3">Fronteras</span>
+            <span style="--index: 3">Fronteras</span>
         </h1>
-      </div>
-      <div style="position: absolute; top: 0; left: 3%">
-        <img
-          src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
-          alt=""
-          width="5%"
-        />
-      </div>
     </div>
+    <div style="position: absolute; top: 0; left: 3%">
+        <img
+                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
+                alt=""
+                width="5%"
+        />
+    </div>
+</div>
 
-    <div style="width: 100%">
-      <div
-        id="navbar"
-        class="row"
-        style="
+<div style="width: 100%">
+    <div
+            id="navbar"
+            class="row"
+            style="
           padding: 0% 19%;
           font-size: 0.7vw;
           text-align: center;
@@ -302,677 +503,634 @@
           justify-content: center;
           background-color: white;
         "
-      >
+    >
         <div class="col-1" style="margin: auto">
-          <a href="#globe-hero">
-            <img
-              id="miImagen"
-              src="assets/flecha-derecha.png"
-              style="width: 40%"
-          /></a>
+            <a href="#globe-hero">
+                <img
+                        id="miImagen"
+                        src="assets/flecha-derecha.png"
+                        style="width: 40%"
+                />
+            </a>
         </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="verticales"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Verticales de negocio
-          </div>
-        </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="conocenos"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Conócenos
-          </div>
-        </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="transformandoElMundo"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Transformando el mundo
-          </div>
-        </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="nuestrosParther"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Nuestros partner
-          </div>
-        </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="liderEnTi"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Lider en TI
-          </div>
-        </div>
-        <div class="col" style="position: relative; height: 100%">
-          <div
-            id="avisoDePrivacidad"
-            style="
-              background-color: #c3cdd5;
-              position: absolute;
-              width: 0%;
-              height: 100%;
-            "
-          ></div>
-          <div
-            style="
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            "
-          >
-            Aviso de privacidad
-          </div>
-        </div>
-      </div>
+        <div class="col" style=" display: flex;
+          align-items: center;
+          justify-content: center; width: 100%; height: 100%; position: relative">
+            <div id="progress"
+                 style=" height: 100%; position: absolute; top: 0; left: 0; background-color: #c3cdd5"></div>
+            <div class="col" style="position: relative; height: 100%">
 
-      <div
-        class="modal fade"
-        id="exampleModalToggle"
-        aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel"
-        tabindex="-1"
-      >
+                <div style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;"
+                >
+                    Verticales de negocio
+                </div>
+            </div>
+            <div class="col" style="position: relative; height: 100%">
+
+                <div
+                        style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+                >
+                    Conócenos
+                </div>
+            </div>
+            <div class="col" style="position: relative; height: 100%">
+
+                <div
+                        style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+                >
+                    Transformando el mundo
+                </div>
+            </div>
+            <div class="col" style="position: relative; height: 100%">
+
+                <div
+                        style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+                >
+                    Nuestros partner
+                </div>
+            </div>
+            <div class="col" style="position: relative; height: 100%">
+
+                <div
+                        style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+                >
+                    Lider en TI
+                </div>
+            </div>
+            <div class="col" style="position: relative; height: 100%">
+
+                <div
+                        style="
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+                >
+                    Aviso de privacidad
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+            class="modal fade"
+            id="exampleModalToggle"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel"
+            tabindex="-1"
+    >
         <div class="modal-dialog modal-dialog-centered" style="width: 50%; max-width: none;">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                    ></button>
+                </div>
 
-            <div class="row">
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                <div class="row">
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>01/</em></span> HCI + SDDC
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>01/</em></span> HCI + SDDC
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>02/</em></span> SEGURIDAD
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>02/</em></span> SEGURIDAD
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>03/</em></span> USUARIO
-                  FINAL
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>03/</em></span> USUARIO
+                            FINAL
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>04/</em></span> DATOS
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>04/</em></span> DATOS
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>05/</em></span> PROCESOS
-                </p>
-              </div>
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>05/</em></span> PROCESOS
+                        </p>
+                    </div>
 
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>06/</em></span> NUBE
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>06/</em></span> NUBE
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>07/</em></span> REDES
-                </p>
-              </div>
-              <div
-                id="menu_1"
-                class="col-12"
-                style="
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>07/</em></span> REDES
+                        </p>
+                    </div>
+                    <div
+                            id="menu_1"
+                            class="col-12"
+                            style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
                 "
-              >
-                <p>
-                  <span style="font-size: 1vw"> <em>08/</em></span> MONITOREO
-                </p>
-              </div>
+                    >
+                        <p>
+                            <span style="font-size: 1vw"> <em>08/</em></span> MONITOREO
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                <button
+                  class="btn btn-primary"
+                  data-bs-target="#exampleModalToggle2"
+                  data-bs-toggle="modal"
+                >
+                  Open second modal
+                </button>
+              </div> -->
             </div>
-            <!-- <div class="modal-footer">
-            <button
-              class="btn btn-primary"
-              data-bs-target="#exampleModalToggle2"
-              data-bs-toggle="modal"
-            >
-              Open second modal
-            </button>
-          </div> -->
-          </div>
         </div>
-      </div>
-      <div
-        class="modal fade"
-        id="exampleModalToggle2"
-        aria-hidden="true"
-        aria-labelledby="exampleModalToggleLabel2"
-        tabindex="-1"
-      >
+    </div>
+    <div
+            class="modal fade"
+            id="exampleModalToggle2"
+            aria-hidden="true"
+            aria-labelledby="exampleModalToggleLabel2"
+            tabindex="-1"
+    >
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
-                Modal 2
-              </h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                        Modal 2
+                    </h1>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    Hide this modal and show the first with the button below.
+                </div>
+                <div class="modal-footer">
+                    <button
+                            class="btn btn-primary"
+                            data-bs-target="#exampleModalToggle"
+                            data-bs-toggle="modal"
+                    >
+                        Back to first
+                    </button>
+                </div>
             </div>
-            <div class="modal-body">
-              Hide this modal and show the first with the button below.
-            </div>
-            <div class="modal-footer">
-              <button
-                class="btn btn-primary"
-                data-bs-target="#exampleModalToggle"
-                data-bs-toggle="modal"
-              >
-                Back to first
-              </button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-      <!-- carrucel -->
-      <div
-        class="row"
-        style="background-color: #e3e3e4; width: 100%; height: 100vh"
-      >
+    <!-- carrucel -->
+    <div
+            class="row"
+            style="background-color: #e3e3e4; width: 100%; height: 100vh"
+    >
         <div class="col-12" style="padding: 4% 1%">
-          <div class="row" style="padding: 1% 0%; color: #3a3a3a">
-            <div class="col-2" style="text-align: end; font-size: 1.5vw">
-              <em>01/</em>
-            </div>
-            <div class="col-8" style="font-size: 2.3vw">
-              Verticales de Negocio
-            </div>
-            <div
-              class="col-2 btn-view-all"
-              style="
+            <div class="row" style="padding: 1% 0%; color: #3a3a3a">
+                <div class="col-2" style="text-align: end; font-size: 1.5vw">
+                    <em>01/</em>
+                </div>
+                <div class="col-8" style="font-size: 2.3vw">
+                    Verticales de Negocio
+                </div>
+                <div
+                        class="col-2 btn-view-all"
+                        style="
                 display: flex;
                 align-items: center;
                 font-size: 1vw;
                 color: #9377ab;
                 cursor: pointer;
               "
-              data-bs-target="#exampleModalToggle"
-              data-bs-toggle="modal"
-            >
-              <div
-                style="
+                        data-bs-target="#exampleModalToggle"
+                        data-bs-toggle="modal"
+                >
+                    <div
+                            style="
                   width: 20px;
                   height: 20px;
                   border: solid 1px #cac4cf;
                   border-radius: 50%;
                   margin-right: 5px;
                 "
-              ></div>
-
-              <div>VER TODO</div>
-            </div>
-          </div>
-          <div class="row" style="color: #3a3a3a">
-            <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
-            <div class="col-8" style="font-size: 1.8vw">
-              <em
-                >Descrubre el potencial de tu empresa con nuestras
-                estrategias.</em
-              >
-            </div>
-            <div
-              class="col-2"
-              style="display: flex; align-items: center; font-size: 1vw"
-            ></div>
-          </div>
-
-          <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="row">
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/HCI.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">
-                          HCI + SDDC
-                        </p>
-                        <p style="font-size: 0.8vw">
-                          Transformamos la infraestructura de TI para que sea
-                          definida por software que virtualiza todos los
-                          elmentos de los sistemas convencionales definidos por
-                          hardware.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Seguridad.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">
-                          SEGURIDAD
-                        </p>
-                        <p style="font-size: 0.8vw">
-                          Habilitamos y apoyamos en cada momento critico sobre
-                          las amenazas cibernéticas, antes y durante los
-                          eventos.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Usuario.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">
-                          USUARIO FINAL
-                        </p>
-                        <p style="font-size: 0.8vw">
-                          Nos aseguramos de que los usuarios, con distintos
-                          dispositivos, puedan acceder a sus aplicaciones y
-                          datos desde cualquier lugar y en cualquier momento.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Datos.png"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">DATOS</p>
-                        <p style="font-size: 0.8vw">
-                          Podemos conectar a los creadores y consumidores de
-                          datos sin dificultades para analizar datos de manera
-                          rápida y aprovechar todo el valor que ofrecen.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Procesos.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">PROCESOS</p>
-                        <p style="font-size: 0.8vw">
-                          Desarrollamos Flujos de Trabajo Digitales, conectamos
-                          personas, funciones y sistemas en todas las áreas de
-                          negocio.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Nube.png"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">NUBE</p>
-                        <p style="font-size: 0.8vw">
-                          Conoce como libramos a nuestros clientes de la
-                          complejidad y el costo de la TI tradicional mediante
-                          el poder de la nube híbrida o total.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Redes.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">REDES</p>
-                        <p style="font-size: 0.8vw">
-                          Creamos nuevas formas de interactuar con los usuarios
-                          aprovechando las redes tecnológicas, monitoreo e
-                          interpretación de datos.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <div class="row" style="background-color: #f3f2f3">
-                      <div
-                        class="col-12"
-                        style="font-size: 1.5vw; height: 5vh"
-                      ></div>
-                      <div class="col-12" style="font-size: 1.5vw">
-                        <img
-                          src="assets/verticales/Monitoreo.jpg"
-                          style="width: 100%"
-                        />
-                      </div>
-                      <div
-                        class="col-12"
-                        style="text-align: center; height: 18vh; color: #9377ab"
-                      >
-                        <p style="font-size: 2vw; font-weight: 400">
-                          MONITOREO
-                        </p>
-                        <p style="font-size: 0.8vw">
-                          Llevamos a cabo acciones proactivas y preventivas, así
-                          como análisis predictivos de datos que aseguren la
-                          disponibilidad de los procesos de negocio.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                    <!-- <div class="row" style="background-color: #f3f2f3">
-                    <div
-                      class="col-12"
-                      style="font-size: 1.5vw; height: 5vh"
                     ></div>
-                    <div class="col-12" style="font-size: 1.5vw">
-                      <img
-                        src="assets/verticales/Usuario.jpg"
-                        style="width: 100%"
-                      />
-                    </div>
-                    <div
-                      class="col-12"
-                      style="text-align: center; height: 18vh; color: #9377ab"
-                    >
-                      <p style="font-size: 2vw; font-weight: 400">
-                        USUARIO FINAL
-                      </p>
-                      <p style="font-size: 0.8vw">
-                        Nos aseguramos de que los usuarios, con distintos
-                        dispositivos, puedan acceder a sus aplicaciones y datos
-                        desde cualquier lugar y en cualquier momento.
-                      </p>
-                    </div>
-                  </div> -->
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExample"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon btn-prev"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExample"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon btn-next"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <div
-        class="row"
-        style="
+                    <div>VER TODO</div>
+                </div>
+            </div>
+            <div class="row" style="color: #3a3a3a">
+                <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
+                <div class="col-8" style="font-size: 1.8vw">
+                    <em
+                    >Descrubre el potencial de tu empresa con nuestras
+                        estrategias.</em
+                    >
+                </div>
+                <div
+                        class="col-2"
+                        style="display: flex; align-items: center; font-size: 1vw"
+                ></div>
+            </div>
+
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/HCI.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            HCI + SDDC
+                                        </p>
+                                        <p style="font-size: 0.8vw">
+                                            Transformamos la infraestructura de TI para que sea
+                                            definida por software que virtualiza todos los
+                                            elmentos de los sistemas convencionales definidos por
+                                            hardware.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Seguridad.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            SEGURIDAD
+                                        </p>
+                                        <p style="font-size: 0.8vw">
+                                            Habilitamos y apoyamos en cada momento critico sobre
+                                            las amenazas cibernéticas, antes y durante los
+                                            eventos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Usuario.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            USUARIO FINAL
+                                        </p>
+                                        <p style="font-size: 0.8vw">
+                                            Nos aseguramos de que los usuarios, con distintos
+                                            dispositivos, puedan acceder a sus aplicaciones y
+                                            datos desde cualquier lugar y en cualquier momento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Datos.png"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">DATOS</p>
+                                        <p style="font-size: 0.8vw">
+                                            Podemos conectar a los creadores y consumidores de
+                                            datos sin dificultades para analizar datos de manera
+                                            rápida y aprovechar todo el valor que ofrecen.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Procesos.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">PROCESOS</p>
+                                        <p style="font-size: 0.8vw">
+                                            Desarrollamos Flujos de Trabajo Digitales, conectamos
+                                            personas, funciones y sistemas en todas las áreas de
+                                            negocio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Nube.png"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">NUBE</p>
+                                        <p style="font-size: 0.8vw">
+                                            Conoce como libramos a nuestros clientes de la
+                                            complejidad y el costo de la TI tradicional mediante
+                                            el poder de la nube híbrida o total.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Redes.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">REDES</p>
+                                        <p style="font-size: 0.8vw">
+                                            Creamos nuevas formas de interactuar con los usuarios
+                                            aprovechando las redes tecnológicas, monitoreo e
+                                            interpretación de datos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <div class="row" style="background-color: #f3f2f3">
+                                    <div
+                                            class="col-12"
+                                            style="font-size: 1.5vw; height: 5vh"
+                                    ></div>
+                                    <div class="col-12" style="font-size: 1.5vw">
+                                        <img
+                                                src="assets/verticales/Monitoreo.jpg"
+                                                style="width: 100%"
+                                        />
+                                    </div>
+                                    <div
+                                            class="col-12"
+                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                    >
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            MONITOREO
+                                        </p>
+                                        <p style="font-size: 0.8vw">
+                                            Llevamos a cabo acciones proactivas y preventivas, así
+                                            como análisis predictivos de datos que aseguren la
+                                            disponibilidad de los procesos de negocio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
+                                <!-- <div class="row" style="background-color: #f3f2f3">
+                                <div
+                                  class="col-12"
+                                  style="font-size: 1.5vw; height: 5vh"
+                                ></div>
+                                <div class="col-12" style="font-size: 1.5vw">
+                                  <img
+                                    src="assets/verticales/Usuario.jpg"
+                                    style="width: 100%"
+                                  />
+                                </div>
+                                <div
+                                  class="col-12"
+                                  style="text-align: center; height: 18vh; color: #9377ab"
+                                >
+                                  <p style="font-size: 2vw; font-weight: 400">
+                                    USUARIO FINAL
+                                  </p>
+                                  <p style="font-size: 0.8vw">
+                                    Nos aseguramos de que los usuarios, con distintos
+                                    dispositivos, puedan acceder a sus aplicaciones y datos
+                                    desde cualquier lugar y en cualquier momento.
+                                  </p>
+                                </div>
+                              </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="prev"
+                >
+              <span
+                      class="carousel-control-prev-icon btn-prev"
+                      aria-hidden="true"
+              ></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselExample"
+                        data-bs-slide="next"
+                >
+              <span
+                      class="carousel-control-next-icon btn-next"
+                      aria-hidden="true"
+              ></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div
+            class="row"
+            style="
           background-color: white;
           width: 100%;
           height: 100vh;
@@ -981,306 +1139,377 @@
           align-items: end;
           position: relative;
         "
-      >
+    >
         <div class="row" style="padding: 1% 0%; color: #3a3a3a">
-          <div class="col-2" style="text-align: end; font-size: 1.5vw">
-            <em>02/</em>
-          </div>
-          <div class="col-8" style="font-size: 2.3vw">Conócenos</div>
+            <div class="col-2" style="text-align: end; font-size: 1.5vw">
+                <em>02/</em>
+            </div>
+            <div class="col-8" style="font-size: 2.3vw">Conócenos</div>
         </div>
 
         <div class="row" style="padding: 5% 15%">
-          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
-            <div style="height: 39vh; padding: 8%; background-color: #e3e3e4">
-              <div style="height: 100%; background-color: white">
-                <img
-                  class="conocenos_1"
-                  src="assets/conocenos/sellcom.png"
-                  alt=""
-                  width="16%"
-                />
-              </div>
+            <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+                <div style="height: 39vh; padding: 8%; background-color: #e3e3e4">
+                    <div style="height: 100%; background-color: white">
+                        <img
+                                class="conocenos_1"
+                                src="assets/conocenos/sellcom.png"
+                                alt=""
+                                width="16%"
+                        />
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
-            <div style="height: 39vh; padding: 8%; background-color: #c5c3c7">
-              <div style="height: 100%; background-color: white">
-                <img
-                  class="conocenos_2"
-                  src="assets/conocenos/premios.png"
-                  alt=""
-                  width="18%"
-                />
-              </div>
+            <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+                <div style="height: 39vh; padding: 8%; background-color: #c5c3c7">
+                    <div style="height: 100%; background-color: white">
+                        <img
+                                class="conocenos_2"
+                                src="assets/conocenos/premios.png"
+                                alt=""
+                                width="18%"
+                        />
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="col-4" style="font-size: 1.5vw; padding: 1%">
-            <div style="height: 39vh; padding: 8%; background-color: #cbc4d0">
-              <div style="height: 100%; background-color: white">
-                <img
-                  class="conocenos_3"
-                  src="assets/conocenos/contactanos.png"
-                  alt=""
-                  width="18%"
-                />
-              </div>
+            <div class="col-4" style="font-size: 1.5vw; padding: 1%">
+                <div style="height: 39vh; padding: 8%; background-color: #cbc4d0">
+                    <div style="height: 100%; background-color: white">
+                        <img
+                                class="conocenos_3"
+                                src="assets/conocenos/contactanos.png"
+                                alt=""
+                                width="18%"
+                        />
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-      <div style="width: 100%; height: 100vh">
+    <div style="width: 100%; height: 100vh">
         <iframe
-          src="https://aad8012.github.io/particles/"
-          style="width: 100%; height: 100%"
-          frameborder="0"
+                src="https://aad8012.github.io/particles/"
+                style="width: 100%; height: 100%"
+                frameborder="0"
         ></iframe>
-      </div>
+    </div>
 
-      <div
-        class="row"
-        style="background-color: gainsboro; width: 100%; height: 100vh"
-      >
+    <div
+            class="row"
+            style="background-color: gainsboro; width: 100%; height: 100vh"
+    >
         <div class="col-12" style="padding: 7% 1%">
-          <div class="row" style="padding: 1% 0%">
-            <div class="col-2" style="text-align: end; font-size: 1.5vw">
-              <em>03/</em>
+            <div class="row" style="padding: 1% 0%">
+                <div class="col-2" style="text-align: end; font-size: 1.5vw">
+                    <em>03/</em>
+                </div>
+                <div class="col-8" style="font-size: 2.3vw">
+                    Son una parte importante de nuestro éxito.
+                </div>
+                <div class="col-2"></div>
             </div>
-            <div class="col-8" style="font-size: 2.3vw">
-              Son una parte importante de nuestro éxito.
-            </div>
-            <div class="col-2"></div>
-          </div>
-          <div class="row">
-            <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
-            <div class="col-8" style="font-size: 1.3vw">
-              <em
-                >Contribuyendo con sus servicios a generar alianzas estratégicas
-                que nos permiten ofrecer mejores soluciones.
-              </em>
-            </div>
-            <div
-              class="col-2"
-              style="display: flex; align-items: center; font-size: 1vw"
-            ></div>
-          </div>
-
-          <div class="row" style="padding: 3% 20%">
-            <div class="col-12">
-              <div class="row">
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/Aruba.png" style="width: 100%" />
-                </div>
-
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/Assac.png" style="width: 100%" />
-                </div>
-
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img
-                    src="assets/partners/automation-anywhere.png"
-                    style="width: 100%"
-                  />
+            <div class="row">
+                <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
+                <div class="col-8" style="font-size: 1.3vw">
+                    <em
+                    >Contribuyendo con sus servicios a generar alianzas estratégicas
+                        que nos permiten ofrecer mejores soluciones.
+                    </em>
                 </div>
                 <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/aws.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/azure.png" style="width: 100%" />
-                </div>
-              </div>
+                        class="col-2"
+                        style="display: flex; align-items: center; font-size: 1vw"
+                ></div>
             </div>
 
-            <div class="col-12">
-              <div class="row">
-                <div
-                  class="col"
-                  style="
+            <div class="row" style="padding: 3% 20%">
+                <div class="col-12">
+                    <div class="row">
+                        <div
+                                id="aruba"
+                                class="col"
+                                style="
                     padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                   "
-                >
-                  <img src="assets/partners/Blancco.png" style="width: 100%" />
+                        >
+                            <img id="image_1" src="assets/partners/color/Aruba%20BCO.png" style="width: 100%"/>
+                            <img id="image_2" src="assets/partners/Aruba.png" style="width: 100%"/>
+                        </div>
+
+                        <div
+                                class="col"
+                                style="padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                                id="assac"
+                        >
+                            <img id="image_3" src="assets/partners/color/Assac.png" style="width: 100%"/>
+                            <img id="image_4" src="assets/partners/Assac.png" style="width: 100%"/>
+                        </div>
+
+                        <div
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                  "
+                                id="automotion"
+                        >
+                            <img id="image_5"
+                                 src="assets/partners/color/automation-anywhere.png"
+
+                                 style="width: 100%"
+                            />
+                            <img
+                                    id="image_6"
+                                    src="assets/partners/automation-anywhere.png"
+                                    style="width: 100%"
+                            />
+                        </div>
+                        <div id="aws"
+                             class="col"
+                             style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                        >
+                            <img id="image_7" src="assets/partners/color/AWS%20BCO.png" style="width: 100%"/>
+                            <img id="image_8" src="assets/partners/aws.png" style="width: 100%"/>
+                        </div>
+                        <div
+                                id="azure"
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                        >
+                            <img id="image_9" src="assets/partners/color/Azure%20BCO.png" style="width: 100%"/>
+                            <img id="image_10" src="assets/partners/azure.png" style="width: 100%"/>
+
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                  class="col"
-                  style="
+                <div class="col-12">
+                    <div class="row">
+                        <div
+                                id="blanco"
+                                class="col"
+                                style="
                     padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                   "
-                >
-                  <img
-                    src="assets/partners/Hitachi-05.png"
-                    style="width: 100%"
-                  />
+                        >
+                            <img id="image_11" src="assets/partners/color/Blancco.png" style="width: 100%"/>
+                            <img id="image_12" src="assets/partners/Blancco.png" style="width: 100%"/>
+                        </div>
+
+                        <div
+                                id="hitachi"
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                        >
+                            <img id="image_13"
+                                 src="assets/partners/color/Hitachi-05.png"
+
+                                 style="width: 100%"
+                            />
+                            <img
+                                    id="image_14"
+                                    src="assets/partners/Hitachi-05.png"
+                                    style="width: 100%"
+                            />
+                        </div>
+
+                        <div
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                                id="intel"
+                        >
+                            <img id="image_15" src="assets/partners/color/Intel.png" style="width: 100%"/>
+                            <img id="image_16" src="assets/partners/Intel.png" style="width: 100%"/>
+                        </div>
+                        <div
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                                id="jamf"
+                        >
+                            <img
+                                    id="image_17"
+                                    src="assets/partners/color/jamf.png"
+                                    style="width: 100%"
+                            />
+                            <img
+                                    id="image_18"
+                                    src="assets/partners/jamf.png"
+
+                                    style="width: 100%"
+                            />
+                        </div>
+                        <div
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                                id="qlink"
+
+                        >
+                            <img
+                                    id="image_19"
+
+                                    src="assets/partners/color/logo-qlik_bn.png"
+                                    style="width: 100%"
+                            />
+                            <img
+                                    id="image_20"
+                                    src="assets/partners/logo-qlik_bn.png"
+
+                                    style="width: 100%"
+                            />
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                  class="col"
-                  style="
+                <div class="col-12">
+                    <div class="row">
+                        <div id="net"
+                             class="col"
+                             style="
                     padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                   "
-                >
-                  <img src="assets/partners/Intel.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
+                        >
+                            <img id="image_21"
+
+                                 src="assets/partners/color/NetApp_BCO.png"
+                                 style="width: 100%"
+                            />
+                            <img
+                                    id="image_22"
+                                    src="assets/partners/NetApp_BCO.png"
+                                    style="width: 100%"
+                            />
+                        </div>
+
+                        <div id="nut"
+                             class="col"
+                             style="
                     padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                   "
-                >
-                  <img src="assets/partners/jamf.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
+                        >
+                            <img id="image_23" src="assets/partners/color/nutanix.png" style="width: 100%"/>
+                            <img id="image_24" src="assets/partners/nutanix.png" style="width: 100%"/>
+                        </div>
+
+                        <div
+                                class="col"
+                                style="
                     padding: 3%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                   "
-                >
-                  <img
-                    src="assets/partners/logo-qlik_bn.png"
-                    style="width: 100%"
-                  />
+                                id="power"
+                        >
+                            <img id="image_25"
+
+                                 src="assets/partners/color/Power_bi_BCO.png"
+                                 style="width: 70%"
+
+                            />
+                            <img id="image_26"
+                                 src="assets/partners/Power_bi_BCO.png"
+                                 style="width: 70%"
+
+                            />
+                        </div>
+                        <div
+                                id="red"
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                        >
+                            <img id="image_27" src="assets/partners/color/Red%20Hat.png" style="width: 100%"/>
+                            <img id="image_28" src="assets/partners/Red Hat.png" style="width: 100%"/>
+                        </div>
+                        <div
+                                class="col"
+                                style="
+                    padding: 3%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                                id="service"
+                        >
+                            <img
+                                    id="image_29"
+                                    src="assets/partners/color/ServiceNow.png"
+                                    style="width: 100%"
+                            />
+                            <img
+                                    id="image_30"
+                                    src="assets/partners/ServiceNow.png"
+                                    style="width: 100%"
+                            />
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-
-            <div class="col-12">
-              <div class="row">
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img
-                    src="assets/partners/NetApp_BCO.png"
-                    style="width: 100%"
-                  />
-                </div>
-
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/nutanix.png" style="width: 100%" />
-                </div>
-
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img
-                    src="assets/partners/Power_bi_BCO.png"
-                    style="width: 70%"
-                  />
-                </div>
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img src="assets/partners/Red Hat.png" style="width: 100%" />
-                </div>
-                <div
-                  class="col"
-                  style="
-                    padding: 3%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                  "
-                >
-                  <img
-                    src="assets/partners/ServiceNow.png"
-                    style="width: 100%"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-      <div class="container-img">
+    <div class="container-img">
         <div class="image-container_zoom image1">
-          <video src="video.mp4" controls autoplay muted loop></video>
+            <video src="video.mp4 " autoplay muted loop></video>
         </div>
         <div
-          style="
+                style="
             text-align: center;
             position: absolute;
             width: 100%;
@@ -1289,109 +1518,109 @@
             font-weight: 500;
             z-index: 1;
           "
-          class="letrasConEfectoVideo"
+                class="letrasConEfectoVideo"
         >
-          <h1>
-            <span style="--index: 1">Transformando</span>
+            <h1>
+                <span style="--index: 1">Transformando</span>
 
-            <span style="--index: 2">el</span>
+                <span style="--index: 2">el</span>
 
-            <span style="--index: 3">mundo digital</span>
-          </h1>
+                <span style="--index: 3">mundo digital</span>
+            </h1>
         </div>
         <div class="image-container image2"></div>
-      </div>
+    </div>
 
-      <div
-        class="row"
-        style="
+    <div
+            class="row"
+            style="
           color: white;
           background-color: #343232;
 
           position: relative;
         "
-      >
+    >
         <div class="col-12">
-          <div class="row">
-            <div class="col-8"></div>
-            <div class="col-4" style="display: flex; padding: 3% 5%">
-              <div style="margin-right: 5%">
-                <img src="assets/redes/twitter.png" style="width: 100%" />
-              </div>
-              <div style="margin-right: 5%">
-                <img src="assets/redes/youtube.png" style="width: 100%" />
-              </div>
-              <div style="margin-right: 5%">
-                <img src="assets/redes/link.png" style="width: 100%" />
-              </div>
+            <div class="row">
+                <div class="col-8"></div>
+                <div class="col-4" style="display: flex; padding: 3% 5%">
+                    <div style="margin-right: 5%">
+                        <img src="assets/redes/twitter.png" style="width: 100%"/>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <img src="assets/redes/youtube.png" style="width: 100%"/>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <img src="assets/redes/link.png" style="width: 100%"/>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="col-12" style="margin-bottom: 10%">
-          <div class="row">
-            <div class="col-8" style="display: flex; padding: 10% 13%">
-              <div class="row">
-                <div class="col-12">
-                  <p style="font-size: 1.5vw; text-align: end">Contáctanos</p>
-                  <p style="font-size: 3.5vw">SELLCOM SOLUTIONS</p>
+            <div class="row">
+                <div class="col-8" style="display: flex; padding: 10% 13%">
+                    <div class="row">
+                        <div class="col-12">
+                            <p style="font-size: 1.5vw; text-align: end">Contáctanos</p>
+                            <p style="font-size: 3.5vw">SELLCOM SOLUTIONS</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div
+                        class="col-4"
+                        style="display: flex; justify-content: start; align-items: center"
+                >
+                    <div style="font-size: 1.5vw">Tel. 01 55 5293 8400</div>
+                </div>
             </div>
-            <div
-              class="col-4"
-              style="display: flex; justify-content: start; align-items: center"
-            >
-              <div style="font-size: 1.5vw">Tel. 01 55 5293 8400</div>
-            </div>
-          </div>
         </div>
         <div class="col-12">
-          <div class="row">
-            <div class="col-1"></div>
-            <div
-              class="col-6"
-              style="display: flex; justify-content: start; align-items: center"
-            >
-              <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Logo-Sellcom-Blanco.png"
-                style="width: 7%; margin-right: 10px"
-              />
-              <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/certificaci%C3%B3n.png"
-                style="width: 7%; margin-right: 10px"
-              />
-              <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/ISO_27001.png"
-                style="width: 7%; margin-right: 10px"
-              />
-              <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Intel.png"
-                style="width: 7%; margin-right: 10px"
-              />
+            <div class="row">
+                <div class="col-1"></div>
+                <div
+                        class="col-6"
+                        style="display: flex; justify-content: start; align-items: center"
+                >
+                    <img
+                            src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Logo-Sellcom-Blanco.png"
+                            style="width: 7%; margin-right: 10px"
+                    />
+                    <img
+                            src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/certificaci%C3%B3n.png"
+                            style="width: 7%; margin-right: 10px"
+                    />
+                    <img
+                            src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/ISO_27001.png"
+                            style="width: 7%; margin-right: 10px"
+                    />
+                    <img
+                            src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Footer/Intel.png"
+                            style="width: 7%; margin-right: 10px"
+                    />
+                </div>
+                <div class="col-5" style="display: flex; padding: 3% 5%">
+                    <p>Aviso de Privacidad | Ayúdanos a mejorar</p>
+                </div>
             </div>
-            <div class="col-5" style="display: flex; padding: 3% 5%">
-              <p>Aviso de Privacidad | Ayúdanos a mejorar</p>
-            </div>
-          </div>
         </div>
         <div style="position: absolute; top: 5%; left: 10%">
-          <img src="./assets/lineas_sobre_sellcom-18.png" alt="" />
+            <img src="./assets/lineas_sobre_sellcom-18.png" alt=""/>
         </div>
         <div style="position: absolute; top: 50%; left: 10%">
-          <img src="./assets/lineas_sobre_sellcom-18.png" alt="" />
+            <img src="./assets/lineas_sobre_sellcom-18.png" alt=""/>
         </div>
-      </div>
     </div>
+</div>
 
-    <script type="text/javascript" src="third-party/Detector.js"></script>
-    <script type="text/javascript" src="third-party/three.min.js"></script>
-    <script type="text/javascript" src="third-party/Tween.js"></script>
-    <script type="text/javascript" src="globe.js"></script>
-    <script src="./script.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+<script type="text/javascript" src="third-party/Detector.js"></script>
+<script type="text/javascript" src="third-party/three.min.js"></script>
+<script type="text/javascript" src="third-party/Tween.js"></script>
+<script type="text/javascript" src="globe.js"></script>
+<script src="./script.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+</body>
 </html>

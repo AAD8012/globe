@@ -1,114 +1,13 @@
 document.addEventListener("scroll", function () {
     const scrollValue = window.scrollY;
     const sectionsScrolled = scrollValue / window.innerHeight;
-    console.log(sectionsScrolled);
-    if (sectionsScrolled > 0 && sectionsScrolled < 1) {
-        var conocenos = document.getElementById("conocenos");
-        var transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        var nuestrosParther = document.getElementById("nuestrosParther");
-        var liderEnTi = document.getElementById("liderEnTi");
-        var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
-        conocenos.style.width = "0";
-        transformandoElMundo.style.width = "0";
-        nuestrosParther.style.width = "0";
-        liderEnTi.style.width = "0";
-        avisoDePrivacidad.style.width = "0";
-        const porcentajeAncho = sectionsScrolled * 100;
-        const verticales = document.getElementById("verticales");
-        verticales.style.width = porcentajeAncho + "%";
-    }
 
-    if (sectionsScrolled > 1 && sectionsScrolled < 2) {
-        var verticales = document.getElementById("verticales");
-        var transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        var nuestrosParther = document.getElementById("nuestrosParther");
-        var liderEnTi = document.getElementById("liderEnTi");
-        var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
-        verticales.style.width = "0";
-        transformandoElMundo.style.width = "0";
-        nuestrosParther.style.width = "0";
-        liderEnTi.style.width = "0";
-        avisoDePrivacidad.style.width = "0";
-        const porcentajeAncho = (sectionsScrolled - 1) * 100;
-        const conocenos = document.getElementById("conocenos");
-        conocenos.style.width = porcentajeAncho + "%";
-    }
 
-    if (sectionsScrolled > 2 && sectionsScrolled < 3) {
-        var verticales = document.getElementById("verticales");
-        var conocenos = document.getElementById("conocenos");
-        var nuestrosParther = document.getElementById("nuestrosParther");
-        var liderEnTi = document.getElementById("liderEnTi");
-        var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
-        verticales.style.width = "0";
-        conocenos.style.width = "0";
-        nuestrosParther.style.width = "0";
-        liderEnTi.style.width = "0";
-        avisoDePrivacidad.style.width = "0";
-        const porcentajeAncho = (sectionsScrolled - 2) * 100;
-        const transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        transformandoElMundo.style.width = porcentajeAncho + "%";
-    }
+    const porcentajeAncho = (sectionsScrolled * 100) / 6;
+    const progress = document.getElementById("progress");
+    progress.style.width = porcentajeAncho + "%";
 
-    if (sectionsScrolled > 3 && sectionsScrolled < 4) {
-        var verticales = document.getElementById("verticales");
-        var conocenos = document.getElementById("conocenos");
-        var transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        var liderEnTi = document.getElementById("liderEnTi");
-        var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
-        verticales.style.width = "0";
-        conocenos.style.width = "0";
-        transformandoElMundo.style.width = "0";
-        liderEnTi.style.width = "0";
-        avisoDePrivacidad.style.width = "0";
-        const porcentajeAncho = (sectionsScrolled - 3) * 100;
-        const nuestrosParther = document.getElementById("nuestrosParther");
-        nuestrosParther.style.width = porcentajeAncho + "%";
-    }
 
-    if (sectionsScrolled > 4 && sectionsScrolled < 5) {
-        var verticales = document.getElementById("verticales");
-        var conocenos = document.getElementById("conocenos");
-        var transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        var nuestrosParther = document.getElementById("nuestrosParther");
-        var avisoDePrivacidad = document.getElementById("avisoDePrivacidad");
-        verticales.style.width = "0";
-        conocenos.style.width = "0";
-        transformandoElMundo.style.width = "0";
-        nuestrosParther.style.width = "0";
-        avisoDePrivacidad.style.width = "0";
-        const porcentajeAncho = (sectionsScrolled - 4) * 100;
-        const liderEnTi = document.getElementById("liderEnTi");
-        liderEnTi.style.width = porcentajeAncho + "%";
-    }
-    if (sectionsScrolled > 5 && sectionsScrolled < 6) {
-        var verticales = document.getElementById("verticales");
-        var conocenos = document.getElementById("conocenos");
-        var transformandoElMundo = document.getElementById(
-            "transformandoElMundo"
-        );
-        var nuestrosParther = document.getElementById("nuestrosParther");
-        var liderEnTi = document.getElementById("liderEnTi");
-        verticales.style.width = "0";
-        conocenos.style.width = "0";
-        transformandoElMundo.style.width = "0";
-        nuestrosParther.style.width = "0";
-        liderEnTi.style.width = "0";
-        const porcentajeAncho = (sectionsScrolled - 5) * 100;
-        const avisoDePrivacidad =
-            document.getElementById("avisoDePrivacidad");
-        avisoDePrivacidad.style.width = porcentajeAncho + "%";
-    }
 });
 
 document.addEventListener("scroll", function () {
@@ -153,7 +52,7 @@ window.addEventListener("scroll", function () {
     const scaleValue = 75;
     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
-    console.log(sectionsScrolled);
+
     if (sectionsScrolled > 4.7 && !isZoomed) {
         document.querySelector(".image2").style.transition =
             "transform 3s ease-in"; /* Ajusta la duración de la transición aquí */
@@ -173,7 +72,7 @@ window.addEventListener("scroll", function () {
 
     const scrollValue = window.scrollY;
     const sectionsScrolled = scrollValue / window.innerHeight;
-    console.log(sectionsScrolled, "componente de conocenos");
+
 
     var conocenos1 = document.querySelector(".conocenos_1");
     var conocenos2 = document.querySelector(".conocenos_2");
@@ -211,7 +110,7 @@ if (!Detector.webgl) {
     var settime = function (globe, t) {
         return function () {
             new TWEEN.Tween(globe)
-                .to({ time: t / years.length }, 500)
+                .to({time: t / years.length}, 500)
                 .easing(TWEEN.Easing.Cubic.EaseOut)
                 .start();
             var y = document.getElementById("year" + years[t]);
