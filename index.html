@@ -196,13 +196,13 @@
             color: black;
         }
 
-        #menu_1 {
+        .menu_1 {
             transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
             font-size: 1.5vw;
             border-radius: 10px;
         }
 
-        #menu_1:hover {
+        .menu_1:hover {
             background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
             border-radius: 10px;
             color: white;
@@ -415,6 +415,86 @@
 
             #image_30 {
                 display: none;
+            }
+        }
+
+        #menu_image_1 {
+            display: none
+        }
+
+        #menu_1:hover {
+            #menu_image_1 {
+                display: block
+            }
+        }
+
+        #menu_image_2 {
+            display: none
+        }
+
+        #menu_2:hover {
+            #menu_image_2 {
+                display: block
+            }
+        }
+
+        #menu_image_3 {
+            display: none
+        }
+
+        #menu_3:hover {
+            #menu_image_3 {
+                display: block
+            }
+        }
+
+        #menu_image_4 {
+            display: none
+        }
+
+        #menu_4:hover {
+            #menu_image_4 {
+                display: block
+            }
+        }
+
+        #menu_image_5 {
+            display: none
+        }
+
+        #menu_5:hover {
+            #menu_image_5 {
+                display: block
+            }
+        }
+
+        #menu_image_6 {
+            display: none
+        }
+
+        #menu_6:hover {
+            #menu_image_6 {
+                display: block
+            }
+        }
+
+        #menu_image_7 {
+            display: none
+        }
+
+        #menu_7:hover {
+            #menu_image_7 {
+                display: block
+            }
+        }
+
+        #menu_image_8 {
+            display: none
+        }
+
+        #menu_8:hover {
+            #menu_image_8 {
+                display: block
             }
         }
     </style>
@@ -630,114 +710,162 @@
                 <div class="row">
                     <div
                             id="menu_1"
-                            class="col-12"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_1"
+                                                                         src="assets/verticales/HCI.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>01/</em></span> HCI + SDDC
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_2"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_2"
+                                                                         src="assets/verticales/Seguridad.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>02/</em></span> SEGURIDAD
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_3"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_3"
+                                                                         src="assets/verticales/Usuario.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>03/</em></span> USUARIO
                             FINAL
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_4"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_4"
+                                                                         src="assets/verticales/Datos.png"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>04/</em></span> DATOS
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_5"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_5"
+                                                                         src="assets/verticales/Procesos.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>05/</em></span> PROCESOS
                         </p>
                     </div>
 
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_6"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_6"
+                                                                         src="assets/verticales/Nube.png"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>06/</em></span> NUBE
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_7"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_7"
+                                                                         src="assets/verticales/Redes.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>07/</em></span> REDES
                         </p>
                     </div>
                     <div
-                            id="menu_1"
-                            class="col-12"
+                            id="menu_8"
+                            class="col-12 menu_1"
                             style="
                   height: 10vh;
                   display: flex;
                   justify-content: start;
                   align-items: end;
+                  position: relative;
+
                 "
                     >
+                        <div style="position: absolute;  left: 37%"><img id="menu_image_8"
+                                                                         src="assets/verticales/Monitoreo.jpg"
+                                                                         style="width: 50%; border-radius: 10px;">
+                        </div>
                         <p>
                             <span style="font-size: 1vw"> <em>08/</em></span> MONITOREO
                         </p>
