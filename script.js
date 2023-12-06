@@ -1,3 +1,12 @@
+var audio = document.getElementById("myAudio");
+
+function playAudio() {
+
+    audio.play();
+
+}
+
+
 document.addEventListener("scroll", function () {
     handleScroll();
 });
@@ -119,16 +128,16 @@ window.addEventListener("scroll", function () {
 
     }
     if (sectionsScrolled > 1 && sectionsScrolled <= 2) {
-        conocenos1.style.top = (sectionsScrolled * 22) + "%";
+        conocenos1.style.top = (sectionsScrolled * 17) + "%";
         conocenos1.style.opacity = sectionsScrolled - 1;
     }
 
     if (sectionsScrolled > 1.5 && sectionsScrolled <= 2) {
-        conocenos2.style.top = (sectionsScrolled * 22) + "%";
+        conocenos2.style.top = (sectionsScrolled * 17) + "%";
         conocenos2.style.opacity = sectionsScrolled - 1;
     }
     if (sectionsScrolled > 1.8 && sectionsScrolled <= 2) {
-        conocenos3.style.top = (sectionsScrolled * 22) + "%";
+        conocenos3.style.top = (sectionsScrolled * 17) + "%";
         conocenos3.style.opacity = sectionsScrolled - 1;
     }
 });
