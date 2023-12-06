@@ -6,6 +6,13 @@ function playAudio() {
 
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('myAudio-click');
+
+    document.addEventListener('click', function () {
+        audio.play();
+    });
+});
 
 document.addEventListener("scroll", function () {
     handleScroll();
