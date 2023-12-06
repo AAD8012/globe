@@ -1,14 +1,14 @@
 var audio = document.getElementById("myAudio");
 
 function playAudio() {
-
+    audio.volume = 0.5;
     audio.play();
 
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     var audio = document.getElementById('myAudio-click');
-
+    audio.volume = 0.8;
     document.addEventListener('click', function () {
         audio.play();
     });
