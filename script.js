@@ -1,4 +1,39 @@
 document.addEventListener("scroll", function () {
+    handleScroll();
+});
+
+function isElementInViewport(el, offset) {
+    var rect = el.getBoundingClientRect();
+    return (
+        rect.top >= offset &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function handleScroll() {
+    var elements = document.querySelectorAll('h1 span');
+    elements.forEach(function (element) {
+        var isInViewport = isElementInViewport(element, 0);
+
+        // Verifica si el elemento está en el viewport
+        if (isInViewport) {
+            // Aplica la animación si no se ha aplicado previamente
+            if (!element.classList.contains('animated')) {
+                element.style.animation = 'appearFromBottom 0.5s forwards';
+                element.classList.add('animated');
+            }
+        } else {
+            // Si está fuera del viewport, reinicia la animación eliminando la clase 'animated'
+            element.style.animation = '';
+            element.classList.remove('animated');
+        }
+    });
+}
+
+
+document.addEventListener("scroll", function () {
     const scrollValue = window.scrollY;
     const sectionsScrolled = scrollValue / window.innerHeight;
 
@@ -53,14 +88,14 @@ window.addEventListener("scroll", function () {
     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
 
-    if (sectionsScrolled > 4.7 && !isZoomed) {
+    if (sectionsScrolled > 4.1 && !isZoomed) {
         document.querySelector(".image2").style.transition =
             "transform 3s ease-in"; /* Ajusta la duración de la transición aquí */
         document.querySelector(
             ".image2"
         ).style.transform = `scale(${scaleValue})`;
         isZoomed = true;
-    } else if (sectionsScrolled <= 4.7 && isZoomed) {
+    } else if (sectionsScrolled <= 4.1 && isZoomed) {
         document.querySelector(".image2").style.transition =
             "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
         document.querySelector(".image2").style.transform = "scale(1)";
@@ -84,16 +119,16 @@ window.addEventListener("scroll", function () {
 
     }
     if (sectionsScrolled > 1 && sectionsScrolled <= 2) {
-        conocenos1.style.top = (sectionsScrolled * 28) + "%";
+        conocenos1.style.top = (sectionsScrolled * 22) + "%";
         conocenos1.style.opacity = sectionsScrolled - 1;
     }
 
     if (sectionsScrolled > 1.5 && sectionsScrolled <= 2) {
-        conocenos2.style.top = (sectionsScrolled * 28) + "%";
+        conocenos2.style.top = (sectionsScrolled * 22) + "%";
         conocenos2.style.opacity = sectionsScrolled - 1;
     }
     if (sectionsScrolled > 1.8 && sectionsScrolled <= 2) {
-        conocenos3.style.top = (sectionsScrolled * 28) + "%";
+        conocenos3.style.top = (sectionsScrolled * 22) + "%";
         conocenos3.style.opacity = sectionsScrolled - 1;
     }
 });

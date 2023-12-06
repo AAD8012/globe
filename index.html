@@ -3,500 +3,498 @@
 <head>
     <title>sellcom</title>
     <meta charset="utf-8"/>
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-            background: white url(loading.gif) center center no-repeat;
-            color: #ffffff;
-            font-family: "Montserrat", sans-serif;
-            font-size: 13px;
-            height: 100%;
+    <style>body {
+        margin: 0;
+        padding: 0;
+        background: white url(loading.gif) center center no-repeat;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 13px;
+        height: 100%;
+    }
+
+    #currentInfo {
+        width: 100%;
+        position: absolute;
+        top: 93%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    a {
+        color: #aaa;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .year {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        font-size: 1.5vw;
+        color: #9da5aa;
+        margin-right: 20px;
+    }
+
+    .year:hover {
+        color: #3a3a3a;
+    }
+
+    #ce span {
+        display: none;
+    }
+
+    @keyframes appearFromBottom {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        #currentInfo {
-            width: 100%;
-            position: absolute;
-            top: 93%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    h1 {
+        overflow: hidden;
+        position: relative;
+        font-size: 4vw !important;
+    }
+
+    h1 span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+
+    }
+
+    canvas {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+    }
+
+    .btn-view-all div:first-child {
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-view-all:hover div:first-child {
+        background-color: #9377ab;
+    }
+
+
+    .conocenos_1 {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+    }
+
+    .conocenos_2 {
+        position: absolute;
+        top: 0;
+        left: 43%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+    }
+
+    .conocenos_3 {
+        position: absolute;
+        top: 0;
+        left: 65%;
+        transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+        opacity: 0;
+    }
+
+    .container-img {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        will-change: transform;
+        transition: transform 0.5s linear;
+    }
+
+    .image-container_zoom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        will-change: transform;
+        transition: transform 1s ease-out; /* Transición más larga para el zoom */
+    }
+
+    .image1 {
+        z-index: 1;
+    }
+
+    .image2 {
+        background-image: url("3.png");
+        z-index: 2;
+        transform-origin: center center;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    @keyframes appearFromBottom {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        a {
-            color: #aaa;
-            text-decoration: none;
-        }
+    .letrasConEfectoVideo h1 {
+        overflow: hidden;
+        position: relative;
+        font-size: 4vw !important;
+        color: white;
+    }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .year {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            font-size: 1.5vw;
-            color: #9da5aa;
-            margin-right: 20px;
-        }
-
-        .year:hover {
-            color: #3a3a3a;
-        }
-
-        #ce span {
-            display: none;
-        }
-
-        @keyframes appearFromBottom {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            overflow: hidden;
-            position: relative;
-            font-size: 4vw !important;
-        }
-
-        h1 span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(100%);
-            animation: appearFromBottom 0.5s forwards;
-            animation-delay: calc(0.5s * var(--index));
-        }
-
-        canvas {
-            width: 100% !important;
-            height: auto !important;
-            position: relative !important;
-        }
-
-        .btn-view-all div:first-child {
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-view-all:hover div:first-child {
-            background-color: #9377ab;
-        }
+    .letrasConEfectoVideo h1 span {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: appearFromBottom 0.5s forwards;
+        animation-delay: calc(0.5s * var(--index));
+    }
 
 
-        .conocenos_1 {
-            position: absolute;
-            top: 0;
-            left: 20%;
-            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-            opacity: 0;
-        }
+    .btn-next {
+        position: absolute;
+        top: 41%;
+        right: 215%;
+        color: black;
+    }
 
-        .conocenos_2 {
-            position: absolute;
-            top: 0;
-            left: 41%;
-            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-            opacity: 0;
-        }
+    .btn-prev {
+        position: absolute;
+        top: 41%;
+        left: 215%;
+        color: black;
+    }
 
-        .conocenos_3 {
-            position: absolute;
-            top: 0;
-            left: 65%;
-            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-            opacity: 0;
-        }
+    .menu_1 {
+        transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
+        font-size: 1.5vw;
+        border-radius: 10px;
+    }
 
-        .container-img {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
+    .menu_1:hover {
+        background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
+        border-radius: 10px;
+        color: white;
+    }
 
-        .image-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            will-change: transform;
-            transition: transform 0.5s linear;
-        }
+    #image_1 {
+        display: none;
+    }
 
-        .image-container_zoom {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            will-change: transform;
-            transition: transform 1s ease-out; /* Transición más larga para el zoom */
-        }
-
-        .image1 {
-            z-index: 1;
-        }
-
-        .image2 {
-            background-image: url("3.png");
-            z-index: 2;
-            transform-origin: center center;
-        }
-
-        video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @keyframes appearFromBottom {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .letrasConEfectoVideo h1 {
-            overflow: hidden;
-            position: relative;
-            font-size: 4vw !important;
-            color: white;
-        }
-
-        .letrasConEfectoVideo h1 span {
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(100%);
-            animation: appearFromBottom 0.5s forwards;
-            animation-delay: calc(0.5s * var(--index));
-        }
-
-
-        .btn-next {
-            position: absolute;
-            top: 41%;
-            right: 215%;
-            color: black;
-        }
-
-        .btn-prev {
-            position: absolute;
-            top: 41%;
-            left: 215%;
-            color: black;
-        }
-
-        .menu_1 {
-            transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
-            font-size: 1.5vw;
-            border-radius: 10px;
-        }
-
-        .menu_1:hover {
-            background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
-            border-radius: 10px;
-            color: white;
-        }
-
+    #aruba:hover {
         #image_1 {
+            display: block;
+        }
+
+        #image_2 {
             display: none;
         }
+    }
 
-        #aruba:hover {
-            #image_1 {
-                display: block;
-            }
+    #image_3 {
+        display: none;
+    }
 
-            #image_2 {
-                display: none;
-            }
-        }
-
+    #assac:hover {
         #image_3 {
+            display: block;
+        }
+
+        #image_4 {
             display: none;
         }
+    }
 
-        #assac:hover {
-            #image_3 {
-                display: block;
-            }
+    #image_5 {
+        display: none;
+    }
 
-            #image_4 {
-                display: none;
-            }
-        }
-
+    #automotion:hover {
         #image_5 {
+            display: block;
+        }
+
+        #image_6 {
             display: none;
         }
+    }
 
-        #automotion:hover {
-            #image_5 {
-                display: block;
-            }
+    #image_7 {
+        display: none;
+    }
 
-            #image_6 {
-                display: none;
-            }
-        }
-
+    #aws:hover {
         #image_7 {
+            display: block;
+        }
+
+        #image_8 {
             display: none;
         }
+    }
 
-        #aws:hover {
-            #image_7 {
-                display: block;
-            }
+    #image_9 {
+        display: none;
+    }
 
-            #image_8 {
-                display: none;
-            }
-        }
-
+    #azure:hover {
         #image_9 {
+            display: block;
+        }
+
+        #image_10 {
             display: none;
         }
+    }
 
-        #azure:hover {
-            #image_9 {
-                display: block;
-            }
+    #image_11 {
+        display: none;
+    }
 
-            #image_10 {
-                display: none;
-            }
-        }
-
+    #blanco:hover {
         #image_11 {
+            display: block;
+        }
+
+        #image_12 {
             display: none;
         }
+    }
 
-        #blanco:hover {
-            #image_11 {
-                display: block;
-            }
+    #image_13 {
+        display: none;
+    }
 
-            #image_12 {
-                display: none;
-            }
-        }
-
+    #hitachi:hover {
         #image_13 {
+            display: block;
+        }
+
+        #image_14 {
             display: none;
         }
+    }
 
-        #hitachi:hover {
-            #image_13 {
-                display: block;
-            }
+    #image_15 {
+        display: none;
+    }
 
-            #image_14 {
-                display: none;
-            }
-        }
-
+    #intel:hover {
         #image_15 {
+            display: block;
+        }
+
+        #image_16 {
             display: none;
         }
+    }
 
-        #intel:hover {
-            #image_15 {
-                display: block;
-            }
+    #image_17 {
+        display: none;
+    }
 
-            #image_16 {
-                display: none;
-            }
-        }
-
+    #jamf:hover {
         #image_17 {
+            display: block;
+        }
+
+        #image_18 {
             display: none;
         }
+    }
 
-        #jamf:hover {
-            #image_17 {
-                display: block;
-            }
+    #image_19 {
+        display: none;
+    }
 
-            #image_18 {
-                display: none;
-            }
-        }
-
+    #qlink:hover {
         #image_19 {
+            display: block;
+        }
+
+        #image_20 {
             display: none;
         }
+    }
 
-        #qlink:hover {
-            #image_19 {
-                display: block;
-            }
+    #image_21 {
+        display: none;
+    }
 
-            #image_20 {
-                display: none;
-            }
-        }
-
+    #net:hover {
         #image_21 {
+            display: block;
+        }
+
+        #image_22 {
             display: none;
         }
+    }
 
-        #net:hover {
-            #image_21 {
-                display: block;
-            }
+    #image_23 {
+        display: none;
+    }
 
-            #image_22 {
-                display: none;
-            }
-        }
-
+    #nut:hover {
         #image_23 {
+            display: block;
+        }
+
+        #image_24 {
             display: none;
         }
+    }
 
-        #nut:hover {
-            #image_23 {
-                display: block;
-            }
+    #image_25 {
+        display: none;
+    }
 
-            #image_24 {
-                display: none;
-            }
-        }
-
+    #power:hover {
         #image_25 {
+            display: block;
+        }
+
+        #image_26 {
             display: none;
         }
+    }
 
-        #power:hover {
-            #image_25 {
-                display: block;
-            }
+    #image_27 {
+        display: none;
+    }
 
-            #image_26 {
-                display: none;
-            }
-        }
-
+    #red:hover {
         #image_27 {
+            display: block;
+        }
+
+        #image_28 {
             display: none;
         }
+    }
 
-        #red:hover {
-            #image_27 {
-                display: block;
-            }
+    #image_29 {
+        display: none;
+    }
 
-            #image_28 {
-                display: none;
-            }
-        }
-
+    #service:hover {
         #image_29 {
+            display: block;
+        }
+
+        #image_30 {
             display: none;
         }
+    }
 
-        #service:hover {
-            #image_29 {
-                display: block;
-            }
+    #menu_image_1 {
+        display: none
+    }
 
-            #image_30 {
-                display: none;
-            }
-        }
-
+    #menu_1:hover {
         #menu_image_1 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_1:hover {
-            #menu_image_1 {
-                display: block
-            }
-        }
+    #menu_image_2 {
+        display: none
+    }
 
+    #menu_2:hover {
         #menu_image_2 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_2:hover {
-            #menu_image_2 {
-                display: block
-            }
-        }
+    #menu_image_3 {
+        display: none
+    }
 
+    #menu_3:hover {
         #menu_image_3 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_3:hover {
-            #menu_image_3 {
-                display: block
-            }
-        }
+    #menu_image_4 {
+        display: none
+    }
 
+    #menu_4:hover {
         #menu_image_4 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_4:hover {
-            #menu_image_4 {
-                display: block
-            }
-        }
+    #menu_image_5 {
+        display: none
+    }
 
+    #menu_5:hover {
         #menu_image_5 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_5:hover {
-            #menu_image_5 {
-                display: block
-            }
-        }
+    #menu_image_6 {
+        display: none
+    }
 
+    #menu_6:hover {
         #menu_image_6 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_6:hover {
-            #menu_image_6 {
-                display: block
-            }
-        }
+    #menu_image_7 {
+        display: none
+    }
 
+    #menu_7:hover {
         #menu_image_7 {
-            display: none
+            display: block
         }
+    }
 
-        #menu_7:hover {
-            #menu_image_7 {
-                display: block
-            }
-        }
+    #menu_image_8 {
+        display: none
+    }
 
+    #menu_8:hover {
         #menu_image_8 {
-            display: none
+            display: block
         }
-
-        #menu_8:hover {
-            #menu_image_8 {
-                display: block
-            }
-        }
+    }
     </style>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -526,48 +524,48 @@
     </style>
 </head>
 <body>
-<div id="globe-hero" style="position: relative; height: 100vh">
-    <div id="container"></div>
+<div style="background-color: #C7CFD6">
+    <div id="globe-hero" style="position: relative; height: 100vh">
+        <div id="container" style="height: 90%"></div>
 
-    <div id="currentInfo">
-        <span id="year1990" class="year">HCI + SPDC |</span>
-        <span id="year1995" class="year">Nube |</span>
-        <span id="year2000" class="year">Seguridad |</span>
-        <span id="year1" class="year">Proceso |</span>
-        <span id="year2" class="year">Monitoreo |</span>
-        <span id="year3" class="year">Datos |</span>
-        <span id="year4" class="year">Redes |</span>
-        <span id="year5" class="year">Usuario Final</span>
-    </div>
+        <div id="currentInfo">
+            <span id="year1990" class="year">HCI + SPDC |</span>
+            <span id="year1995" class="year">Nube |</span>
+            <span id="year2000" class="year">Seguridad |</span>
+            <span id="year1" class="year">Proceso |</span>
+            <span id="year2" class="year">Monitoreo |</span>
+            <span id="year3" class="year">Datos |</span>
+            <span id="year4" class="year">Redes |</span>
+            <span id="year5" class="year">Usuario Final</span>
+        </div>
 
-    <div
-            style="
-          text-align: center;
+        <div style="text-align: center;
           position: absolute;
           width: 100%;
           top: 40%;
           color: #463c4f;
-          font-weight: 500;
-        "
-            class="letrasConEfecto"
-    >
-        <h1>
-            <span style="--index: 1">Transformación</span>
-
-            <span style="--index: 2">Sin</span>
-
-            <span style="--index: 3">Fronteras</span>
-        </h1>
-    </div>
-    <div style="position: absolute; top: 0; left: 3%">
-        <img
-                src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
-                alt=""
-                width="5%"
-        />
+          font-weight: 500;"
+             class="letrasConEfecto"
+        >
+            <h1>
+                <span style="--index: 1">Transformación</span>
+                <span style="--index: 2">Sin</span>
+                <span style="--index: 3">Fronteras</span>
+            </h1>
+        </div>
+        <div style="position: absolute; top: 5%; left: 3%">
+            <img
+                    src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
+                    alt=""
+                    width="5%"
+            />
+        </div>
     </div>
 </div>
-
+<audio id="myAudio" autoplay loop>
+    <source src="epic.mp3" type="audio/mp3">
+    Tu navegador no soporta la etiqueta de audio.
+</audio>
 <div style="width: 100%">
     <div
             id="navbar"
@@ -708,26 +706,27 @@
                 </div>
 
                 <div class="row">
-                    <div
-                            id="menu_1"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
 
-                "
+
+                    <div id="menu_1"
+                         class="col-12 menu_1"
+                         style="height: 10vh;
+                                display: flex;
+                                justify-content: start;
+                                align-items: end;
+                                position: relative;"
                     >
-                        <div style="position: absolute;  left: 37%"><img id="menu_image_1"
-                                                                         src="assets/verticales/HCI.jpg"
-                                                                         style="width: 50%; border-radius: 10px;">
+                        <div style="position: absolute;  left: 37%">
+                            <img id="menu_image_1"
+                                 src="assets/verticales/HCI.jpg"
+                                 style="width: 50%; border-radius: 10px;">
                         </div>
                         <p>
                             <span style="font-size: 1vw"> <em>01/</em></span> HCI + SDDC
                         </p>
                     </div>
+
+
                     <div
                             id="menu_2"
                             class="col-12 menu_1"
@@ -924,7 +923,7 @@
             class="row"
             style="background-color: #e3e3e4; width: 100%; height: 100vh"
     >
-        <div class="col-12" style="padding: 4% 1%">
+        <div class="col-12" style="padding: 2% 1%">
             <div class="row" style="padding: 1% 0%; color: #3a3a3a">
                 <div class="col-2" style="text-align: end; font-size: 1.5vw">
                     <em>01/</em>
@@ -957,7 +956,7 @@
                     <div>VER TODO</div>
                 </div>
             </div>
-            <div class="row" style="color: #3a3a3a">
+            <div class="row" style="color: #3a3a3a; margin-bottom: 3%">
                 <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
                 <div class="col-8" style="font-size: 1.8vw">
                     <em
@@ -975,16 +974,20 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
-                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                                <div class="row" style="background-color: #f3f2f3">
-                                    <div
-                                            class="col-12"
-                                            style="font-size: 1.5vw; height: 5vh"
+
+                            <div class="col-4" style="font-size: 1.5vw; padding: 2%; ">
+                                <div class="row" style="background-color: #f3f2f3;">
+                                    <div class="col-12"
+                                         style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/HCI.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/HCI.jpg"
+                                                style="width: 104%; position: absolute; right: -2%"
                                         />
                                     </div>
                                     <div
@@ -1010,10 +1013,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Seguridad.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Seguridad.jpg"
+                                                style="width: 104%; position: absolute; left: -2%"
                                         />
                                     </div>
                                     <div
@@ -1038,10 +1045,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Usuario.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Usuario.jpg"
+                                                style="width: 104%; position: absolute; right: -2%"
                                         />
                                     </div>
                                     <div
@@ -1069,10 +1080,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Datos.png"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Datos.png"
+                                                style="width: 104%; position: absolute; right: -2%"
                                         />
                                     </div>
                                     <div
@@ -1095,10 +1110,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Procesos.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Procesos.jpg"
+                                                style="width: 104%; position: absolute; left: -2%"
                                         />
                                     </div>
                                     <div
@@ -1121,10 +1140,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Nube.png"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Nube.png"
+                                                style="width: 104%; position: absolute; right: -2%"
                                         />
                                     </div>
                                     <div
@@ -1150,10 +1173,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Redes.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Redes.jpg"
+                                                style="width: 104%; position: absolute; right: -2%"
                                         />
                                     </div>
                                     <div
@@ -1176,10 +1203,14 @@
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
                                     ></div>
-                                    <div class="col-12" style="font-size: 1.5vw">
+                                    <div class="col-12" style="font-size: 1.5vw;position: relative">
                                         <img
                                                 src="assets/verticales/Monitoreo.jpg"
-                                                style="width: 100%"
+                                                style="width: 100%; margin-bottom: 10%"
+                                        />
+                                        <img
+                                                src="assets/verticales/Monitoreo.jpg"
+                                                style="width: 104%; position: absolute; left: -2%"
                                         />
                                     </div>
                                     <div
@@ -1261,21 +1292,22 @@
             style="
           background-color: white;
           width: 100%;
-          height: 100vh;
+
           display: flex;
           justify-content: center;
-          align-items: end;
+          align-items: center;
           position: relative;
+
         "
     >
-        <div class="row" style="padding: 1% 0%; color: #3a3a3a">
+        <div class="row" style="padding: 5% 0%; color: #3a3a3a">
             <div class="col-2" style="text-align: end; font-size: 1.5vw">
                 <em>02/</em>
             </div>
             <div class="col-8" style="font-size: 2.3vw">Conócenos</div>
         </div>
 
-        <div class="row" style="padding: 5% 15%">
+        <div class="row" style="padding: 1% 15%;">
             <div class="col-4" style="font-size: 1.5vw; padding: 1%">
                 <div style="height: 39vh; padding: 8%; background-color: #e3e3e4">
                     <div style="height: 100%; background-color: white">
@@ -1287,6 +1319,7 @@
                         />
                     </div>
                 </div>
+                <div style="text-align: center; font-size: 2vw">Sobre Sellcom</div>
             </div>
 
             <div class="col-4" style="font-size: 1.5vw; padding: 1%">
@@ -1296,10 +1329,11 @@
                                 class="conocenos_2"
                                 src="assets/conocenos/premios.png"
                                 alt=""
-                                width="18%"
+                                width="16%"
                         />
                     </div>
                 </div>
+                <div style="text-align: center; font-size: 2vw">Premios</div>
             </div>
 
             <div class="col-4" style="font-size: 1.5vw; padding: 1%">
@@ -1309,10 +1343,11 @@
                                 class="conocenos_3"
                                 src="assets/conocenos/contactanos.png"
                                 alt=""
-                                width="18%"
+                                width="16%"
                         />
                     </div>
                 </div>
+                <div style="text-align: center; font-size: 2vw">Contáctanos</div>
             </div>
         </div>
     </div>
@@ -1655,18 +1690,22 @@
 
                 <span style="--index: 3">mundo digital</span>
             </h1>
+            <h1>
+                <span style="--index: 1">Sellcom</span>
+
+                <span style="--index: 2">Solution</span>
+
+
+            </h1>
         </div>
         <div class="image-container image2"></div>
     </div>
 
     <div
             class="row"
-            style="
-          color: white;
+            style="color: white;
           background-color: #343232;
-
-          position: relative;
-        "
+          position: relative;"
     >
         <div class="col-12">
             <div class="row">
@@ -1677,6 +1716,12 @@
                     </div>
                     <div style="margin-right: 5%">
                         <img src="assets/redes/youtube.png" style="width: 100%"/>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <img src="assets/redes/link.png" style="width: 100%"/>
+                    </div>
+                    <div style="margin-right: 5%">
+                        <img src="assets/redes/link.png" style="width: 100%"/>
                     </div>
                     <div style="margin-right: 5%">
                         <img src="assets/redes/link.png" style="width: 100%"/>

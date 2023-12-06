@@ -1,0 +1,492 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: white url(loading.gif) center center no-repeat;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+    height: 100%;
+}
+
+#currentInfo {
+    width: 100%;
+    position: absolute;
+    top: 93%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.year {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-size: 1.5vw;
+    color: #9da5aa;
+    margin-right: 20px;
+}
+
+.year:hover {
+    color: #3a3a3a;
+}
+
+#ce span {
+    display: none;
+}
+
+@keyframes appearFromBottom {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    overflow: hidden;
+    position: relative;
+    font-size: 4vw !important;
+}
+
+h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+}
+
+.btn-view-all div:first-child {
+    transition: background-color 0.3s ease;
+}
+
+.btn-view-all:hover div:first-child {
+    background-color: #9377ab;
+}
+
+
+.conocenos_1 {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+    opacity: 0;
+}
+
+.conocenos_2 {
+    position: absolute;
+    top: 0;
+    left: 41%;
+    transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+    opacity: 0;
+}
+
+.conocenos_3 {
+    position: absolute;
+    top: 0;
+    left: 65%;
+    transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
+    opacity: 0;
+}
+
+.container-img {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    will-change: transform;
+    transition: transform 0.5s linear;
+}
+
+.image-container_zoom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    will-change: transform;
+    transition: transform 1s ease-out; /* Transición más larga para el zoom */
+}
+
+.image1 {
+    z-index: 1;
+}
+
+.image2 {
+    background-image: url("3.png");
+    z-index: 2;
+    transform-origin: center center;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes appearFromBottom {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.letrasConEfectoVideo h1 {
+    overflow: hidden;
+    position: relative;
+    font-size: 4vw !important;
+    color: white;
+}
+
+.letrasConEfectoVideo h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: appearFromBottom 0.5s forwards;
+    animation-delay: calc(0.5s * var(--index));
+}
+
+
+.btn-next {
+    position: absolute;
+    top: 41%;
+    right: 215%;
+    color: black;
+}
+
+.btn-prev {
+    position: absolute;
+    top: 41%;
+    left: 215%;
+    color: black;
+}
+
+.menu_1 {
+    transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
+    font-size: 1.5vw;
+    border-radius: 10px;
+}
+
+.menu_1:hover {
+    background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
+    border-radius: 10px;
+    color: white;
+}
+
+#image_1 {
+    display: none;
+}
+
+#aruba:hover {
+    #image_1 {
+        display: block;
+    }
+
+    #image_2 {
+        display: none;
+    }
+}
+
+#image_3 {
+    display: none;
+}
+
+#assac:hover {
+    #image_3 {
+        display: block;
+    }
+
+    #image_4 {
+        display: none;
+    }
+}
+
+#image_5 {
+    display: none;
+}
+
+#automotion:hover {
+    #image_5 {
+        display: block;
+    }
+
+    #image_6 {
+        display: none;
+    }
+}
+
+#image_7 {
+    display: none;
+}
+
+#aws:hover {
+    #image_7 {
+        display: block;
+    }
+
+    #image_8 {
+        display: none;
+    }
+}
+
+#image_9 {
+    display: none;
+}
+
+#azure:hover {
+    #image_9 {
+        display: block;
+    }
+
+    #image_10 {
+        display: none;
+    }
+}
+
+#image_11 {
+    display: none;
+}
+
+#blanco:hover {
+    #image_11 {
+        display: block;
+    }
+
+    #image_12 {
+        display: none;
+    }
+}
+
+#image_13 {
+    display: none;
+}
+
+#hitachi:hover {
+    #image_13 {
+        display: block;
+    }
+
+    #image_14 {
+        display: none;
+    }
+}
+
+#image_15 {
+    display: none;
+}
+
+#intel:hover {
+    #image_15 {
+        display: block;
+    }
+
+    #image_16 {
+        display: none;
+    }
+}
+
+#image_17 {
+    display: none;
+}
+
+#jamf:hover {
+    #image_17 {
+        display: block;
+    }
+
+    #image_18 {
+        display: none;
+    }
+}
+
+#image_19 {
+    display: none;
+}
+
+#qlink:hover {
+    #image_19 {
+        display: block;
+    }
+
+    #image_20 {
+        display: none;
+    }
+}
+
+#image_21 {
+    display: none;
+}
+
+#net:hover {
+    #image_21 {
+        display: block;
+    }
+
+    #image_22 {
+        display: none;
+    }
+}
+
+#image_23 {
+    display: none;
+}
+
+#nut:hover {
+    #image_23 {
+        display: block;
+    }
+
+    #image_24 {
+        display: none;
+    }
+}
+
+#image_25 {
+    display: none;
+}
+
+#power:hover {
+    #image_25 {
+        display: block;
+    }
+
+    #image_26 {
+        display: none;
+    }
+}
+
+#image_27 {
+    display: none;
+}
+
+#red:hover {
+    #image_27 {
+        display: block;
+    }
+
+    #image_28 {
+        display: none;
+    }
+}
+
+#image_29 {
+    display: none;
+}
+
+#service:hover {
+    #image_29 {
+        display: block;
+    }
+
+    #image_30 {
+        display: none;
+    }
+}
+
+#menu_image_1 {
+    display: none
+}
+
+#menu_1:hover {
+    #menu_image_1 {
+        display: block
+    }
+}
+
+#menu_image_2 {
+    display: none
+}
+
+#menu_2:hover {
+    #menu_image_2 {
+        display: block
+    }
+}
+
+#menu_image_3 {
+    display: none
+}
+
+#menu_3:hover {
+    #menu_image_3 {
+        display: block
+    }
+}
+
+#menu_image_4 {
+    display: none
+}
+
+#menu_4:hover {
+    #menu_image_4 {
+        display: block
+    }
+}
+
+#menu_image_5 {
+    display: none
+}
+
+#menu_5:hover {
+    #menu_image_5 {
+        display: block
+    }
+}
+
+#menu_image_6 {
+    display: none
+}
+
+#menu_6:hover {
+    #menu_image_6 {
+        display: block
+    }
+}
+
+#menu_image_7 {
+    display: none
+}
+
+#menu_7:hover {
+    #menu_image_7 {
+        display: block
+    }
+}
+
+#menu_image_8 {
+    display: none
+}
+
+#menu_8:hover {
+    #menu_image_8 {
+        display: block
+    }
+}
