@@ -1,18 +1,4 @@
-var audio = document.getElementById("myAudio");
 
-function playAudio() {
-    audio.volume = 0.5;
-    audio.play();
-
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    var audio = document.getElementById('myAudio-click');
-    audio.volume = 0.8;
-    document.addEventListener('click', function () {
-        audio.play();
-    });
-});
 
 document.addEventListener("scroll", function () {
     handleScroll();
@@ -104,14 +90,14 @@ window.addEventListener("scroll", function () {
     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
 
-    if (sectionsScrolled > 4.1 && !isZoomed) {
+    if (sectionsScrolled > 5.5 && !isZoomed) {
         document.querySelector(".image2").style.transition =
-            "transform 3s ease-in"; /* Ajusta la duración de la transición aquí */
+            "transform 5s ease-in"; /* Ajusta la duración de la transición aquí */
         document.querySelector(
             ".image2"
         ).style.transform = `scale(${scaleValue})`;
         isZoomed = true;
-    } else if (sectionsScrolled <= 4.1 && isZoomed) {
+    } else if (sectionsScrolled <= 5.6 && isZoomed) {
         document.querySelector(".image2").style.transition =
             "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
         document.querySelector(".image2").style.transform = "scale(1)";
@@ -119,35 +105,35 @@ window.addEventListener("scroll", function () {
     }
 });
 
-window.addEventListener("scroll", function () {
-
-    const scrollValue = window.scrollY;
-    const sectionsScrolled = scrollValue / window.innerHeight;
-
-
-    var conocenos1 = document.querySelector(".conocenos_1");
-    var conocenos2 = document.querySelector(".conocenos_2");
-    var conocenos3 = document.querySelector(".conocenos_3");
-    if (sectionsScrolled < 1) {
-        conocenos1.style.top = 0 + "%";
-        conocenos2.style.top = 0 + "%";
-        conocenos3.style.top = 0 + "%";
-
-    }
-    if (sectionsScrolled > 1 && sectionsScrolled <= 2) {
-        conocenos1.style.top = (sectionsScrolled * 17) + "%";
-        conocenos1.style.opacity = sectionsScrolled - 1;
-    }
-
-    if (sectionsScrolled > 1.5 && sectionsScrolled <= 2) {
-        conocenos2.style.top = (sectionsScrolled * 17) + "%";
-        conocenos2.style.opacity = sectionsScrolled - 1;
-    }
-    if (sectionsScrolled > 1.8 && sectionsScrolled <= 2) {
-        conocenos3.style.top = (sectionsScrolled * 17) + "%";
-        conocenos3.style.opacity = sectionsScrolled - 1;
-    }
-});
+// window.addEventListener("scroll", function () {
+//
+//     const scrollValue = window.scrollY;
+//     const sectionsScrolled = scrollValue / window.innerHeight;
+//
+//
+//     var conocenos1 = document.querySelector(".conocenos_1");
+//     var conocenos2 = document.querySelector(".conocenos_2");
+//     var conocenos3 = document.querySelector(".conocenos_3");
+//     if (sectionsScrolled < 1) {
+//         conocenos1.style.top = 0 + "%";
+//         conocenos2.style.top = 0 + "%";
+//         conocenos3.style.top = 0 + "%";
+//
+//     }
+//     if (sectionsScrolled > 1 && sectionsScrolled <= 2) {
+//         conocenos1.style.top = (sectionsScrolled * 17) + "%";
+//         conocenos1.style.opacity = sectionsScrolled - 1;
+//     }
+//
+//     if (sectionsScrolled > 1.5 && sectionsScrolled <= 2) {
+//         conocenos2.style.top = (sectionsScrolled * 17) + "%";
+//         conocenos2.style.opacity = sectionsScrolled - 1;
+//     }
+//     if (sectionsScrolled > 1.8 && sectionsScrolled <= 2) {
+//         conocenos3.style.top = (sectionsScrolled * 17) + "%";
+//         conocenos3.style.opacity = sectionsScrolled - 1;
+//     }
+// });
 if (!Detector.webgl) {
     Detector.addGetWebGLMessage();
 } else {
