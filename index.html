@@ -632,6 +632,57 @@
                 display: block;
             }
         }
+
+        .title:hover {
+            color: #7B8080;
+        }
+
+        .conocenos_1 {
+            transition: transform 0.3s ease; /* Efecto de transición en 0.3 segundos */
+
+        }
+
+        .conocenos_1:hover {
+            transform: scale(1.2); /* Escala la imagen al 120% cuando esté en estado hover */
+        }
+
+        .title-conocenos:hover {
+            color: #BCC8D1;
+        }
+
+        .contenedor {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imagen {
+            width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+            height: auto;
+            opacity: 0; /* Inicialmente oculta la imagen */
+            transition: opacity 0.2s linear; /* Efecto de transición en la opacidad */
+        }
+
+        .contenedor:hover .imagen {
+            opacity: 1;
+cursor: pointer;
+
+        }
+
+        .parrafo_1 {
+            opacity: 0;
+        }
+
+        .parrafo {
+            position: absolute;
+            top: 40%;
+            right: 25%;
+        }
+
+        .contenedor:hover .parrafo {
+            top: 0%;
+            font-weight: 500;
+
+        }
     </style>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -869,10 +920,11 @@
     >
         <div
                 class="modal-dialog modal-dialog-centered"
-                style="width: 50%; max-width: none"
+                style="width: 71%; max-width: none"
         >
             <div class="modal-content">
                 <div class="modal-header">
+                    <div style="text-align: center; width: 100%; font-size: 1.5vw">Nuestras verticales de Negocio</div>
                     <button
                             type="button"
                             class="btn-close"
@@ -881,219 +933,66 @@
                     ></button>
                 </div>
 
-                <div class="row">
-                    <div
-                            id="menu_1"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_1"
-                                    src="assets/verticales/HCI.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px"
-                  ><em>01/</em></span
-                  >
-                            HCI + SDDC
-                        </p>
+                <div class="row" style="padding: 3%">
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>01/</em></span>HCI + SDDC</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>01/</em></span>HCI + SDDC</p>
+                        <img src="assets/verticales/HCI.jpg" alt="Imagen 1" class="imagen">
+                    </div>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>02/</em></span>SEGURIDAD</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>02/</em></span>SEGURIDAD</p>
+                        <img src="assets/verticales/Seguridad.jpg" alt="Imagen 1" class="imagen">
                     </div>
 
-                    <div
-                            id="menu_2"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_2"
-                                    src="assets/verticales/Seguridad.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>02/</em></span
-                  >
-                            SEGURIDAD
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>03/</em></span> USUARIO FINAL</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>03/</em></span> USUARIO FINAL</p>
+                        <img src="assets/verticales/Usuario.jpg" alt="Imagen 1" class="imagen">
                     </div>
-                    <div
-                            id="menu_3"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_3"
-                                    src="assets/verticales/Usuario.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>03/</em></span
-                  >
-                            USUARIO FINAL
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>04/</em></span> DATOS</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>04/</em></span> DATOS</p>
+                        <img src="assets/verticales/Datos.png" alt="Imagen 1" class="imagen">
                     </div>
-                    <div
-                            id="menu_4"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_4"
-                                    src="assets/verticales/Datos.png"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>04/</em></span
-                  >
-                            DATOS
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>05/</em></span> PROCESOS</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>05/</em></span> PROCESOS</p>
+                        <img src="assets/verticales/Procesos.jpg" alt="Imagen 1" class="imagen">
                     </div>
-                    <div
-                            id="menu_5"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_5"
-                                    src="assets/verticales/Procesos.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>05/</em></span
-                  >
-                            PROCESOS
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>06/</em></span> NUBE</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>06/</em></span> NUBE</p>
+                        <img src="assets/verticales/Nube.png" alt="Imagen 1" class="imagen">
                     </div>
-
-                    <div
-                            id="menu_6"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_6"
-                                    src="assets/verticales/Nube.png"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>06/</em></span
-                  >
-                            NUBE
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>07/</em></span> REDES</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>07/</em></span> REDES</p>
+                        <img src="assets/verticales/Redes.jpg" alt="Imagen 1" class="imagen">
                     </div>
-                    <div
-                            id="menu_7"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_7"
-                                    src="assets/verticales/Redes.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>07/</em></span
-                  >
-                            REDES
-                        </p>
-                    </div>
-                    <div
-                            id="menu_8"
-                            class="col-12 menu_1"
-                            style="
-                  height: 10vh;
-                  display: flex;
-                  justify-content: start;
-                  align-items: end;
-                  position: relative;
-                "
-                    >
-                        <div style="position: absolute; left: 37%">
-                            <img
-                                    id="menu_image_8"
-                                    src="assets/verticales/Monitoreo.jpg"
-                                    style="width: 50%; border-radius: 10px"
-                            />
-                        </div>
-                        <p>
-                  <span style="font-size: 1vw; margin-left: 35px">
-                    <em>08/</em></span
-                  >
-                            MONITOREO
-                        </p>
+                    <div class="col-3 contenedor">
+                        <p class="parrafo_1">
+                            <span style="font-size: 1vw;"><em>08/</em></span> MONITOREO</p>
+                        <p class="parrafo">
+                            <span style="font-size: 1vw;"><em>08/</em></span> MONITOREO</p>
+                        <img src="assets/verticales/Monitoreo.jpg" alt="Imagen 1" class="imagen">
                     </div>
                 </div>
-                <!-- <div class="modal-footer">
-                    <button
-                      class="btn btn-primary"
-                      data-bs-target="#exampleModalToggle2"
-                      data-bs-toggle="modal"
-                    >
-                      Open second modal
-                    </button>
-                  </div> -->
+
             </div>
         </div>
     </div>
@@ -1176,7 +1075,7 @@
                 <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
                 <div class="col-8" style="font-size: 1.8vw;">
                     <em
-                    >Descrubre el potencial de tu empresa con nuestras
+                    >Descubre el potencial de tu empresa con nuestras
                         estrategias.</em
                     >
                 </div>
@@ -1213,13 +1112,13 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             HCI + SDDC
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Transformamos la infraestructura de TI para que sea
                                             definida por software que virtualiza todos los
-                                            elmentos de los sistemas convencionales definidos por
+                                            elementos de los sistemas convencionales definidos por
                                             hardware.
                                         </p>
                                     </div>
@@ -1249,11 +1148,10 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             SEGURIDAD
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
-
                                             Habilitamos y apoyamos en cada momento critico sobre
                                             las amenazas cibernéticas, antes y durante los
                                             eventos.
@@ -1291,7 +1189,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             USUARIO FINAL
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1326,7 +1224,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             DATOS
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1367,7 +1265,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             PROCESOS
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1402,7 +1300,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             NUBE
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1442,7 +1340,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             REDES
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1477,7 +1375,7 @@
                                             class="col-12"
                                             style="text-align: center;  color: #BFC9D1; margin-top: 5%"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">
+                                        <p style="font-size: 2vw; font-weight: 400" class="title">
                                             MONITOREO
                                         </p>
                                         <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
@@ -1554,7 +1452,7 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5%">
-                        <div class="col-6" style="font-size: 1.5vw">Sobre Sellcom</div>
+                        <div class="col-6 title-conocenos" style="font-size: 1.5vw">Sobre Sellcom</div>
                         <div class="col-6">
                             <img src="lineaconocenos.png" style="width: 100%"/>
                         </div>
@@ -1573,7 +1471,7 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5%">
-                        <div class="col-4" style="font-size: 1.5vw">Premios</div>
+                        <div class="col-4 title-conocenos" style="font-size: 1.5vw">Premios</div>
                         <div class="col-8">
                             <img src="lineaconocenos.png" style="width: 100%"/>
                         </div>
@@ -1592,7 +1490,7 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5%">
-                        <div class="col-5" style="font-size: 1.5vw">Contáctanos</div>
+                        <div class="col-5 title-conocenos" style="font-size: 1.5vw">Contáctanos</div>
                         <div class="col-6">
                             <img src="lineaconocenos.png" style="width: 100%"/>
                         </div>
@@ -2298,7 +2196,7 @@
                 </div>
                 <div style="width: 50%; display: flex; justify-content: end; align-content: start; margin-top: -3%">
                     <div><h1><span style="font-size:2vw"
-                                   class="letrasConEfectoVideo">Sellcom Solutions</span></h1></div>
+                                   class="letrasConEfectoVideo-sub">Sellcom Solutions</span></h1></div>
                 </div>
             </div>
         </div>

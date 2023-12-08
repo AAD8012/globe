@@ -1,7 +1,9 @@
 document.addEventListener("scroll", function () {
     handleScroll();
     handleScrollVideo()
+    handleScrollVideosub()
 });
+
 
 function isElementInViewport(el, offset) {
     var rect = el.getBoundingClientRect();
@@ -38,6 +40,25 @@ function handleScrollVideo() {
                     element.style.animation = 'appearFromBottom 0.5s forwards';
                     element.classList.add('animated');
                 }, 3000);
+            }
+        } else {
+            element.style.animation = '';
+            element.classList.remove('animated');
+        }
+    });
+}
+
+function handleScrollVideosub() {
+    var elements = document.querySelectorAll('.letrasConEfectoVideo-sub');
+    elements.forEach(function (element) {
+        var isInViewport = isElementInViewport(element, 5);
+        if (isInViewport) {
+
+            if (!element.classList.contains('animated')) {
+                setTimeout(function () {
+                    element.style.animation = 'appearFromBottom 0.5s forwards';
+                    element.classList.add('animated');
+                }, 4000);
             }
         } else {
             element.style.animation = '';
