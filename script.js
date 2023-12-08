@@ -1,5 +1,6 @@
 document.addEventListener("scroll", function () {
     handleScroll();
+    handleScrollVideo()
 });
 
 function isElementInViewport(el, offset) {
@@ -8,7 +9,7 @@ function isElementInViewport(el, offset) {
 }
 
 function handleScroll() {
-    var elements = document.querySelectorAll('h1 span');
+    var elements = document.querySelectorAll('.letrasConEfecto');
     elements.forEach(function (element) {
         var isInViewport = isElementInViewport(element, 0);
 
@@ -26,6 +27,24 @@ function handleScroll() {
     });
 }
 
+function handleScrollVideo() {
+    var elements = document.querySelectorAll('.letrasConEfectoVideo');
+    elements.forEach(function (element) {
+        var isInViewport = isElementInViewport(element, 5);
+        if (isInViewport) {
+
+            if (!element.classList.contains('animated')) {
+                setTimeout(function () {
+                    element.style.animation = 'appearFromBottom 0.5s forwards';
+                    element.classList.add('animated');
+                }, 3000);
+            }
+        } else {
+            element.style.animation = '';
+            element.classList.remove('animated');
+        }
+    });
+}
 
 document.addEventListener("scroll", function () {
     const scrollValue = window.scrollY;
