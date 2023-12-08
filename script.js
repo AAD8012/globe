@@ -1,5 +1,3 @@
-
-
 document.addEventListener("scroll", function () {
     handleScroll();
 });
@@ -89,15 +87,16 @@ window.addEventListener("scroll", function () {
     const scaleValue = 75;
     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
-
-    if (sectionsScrolled > 5.5 && !isZoomed) {
+    console.log(sectionsScrolled)
+    if (sectionsScrolled > 4.9 && !isZoomed) {
         document.querySelector(".image2").style.transition =
-            "transform 5s ease-in"; /* Ajusta la duración de la transición aquí */
+            "transform 2s ease-in"; /* Ajusta la duración de la transición aquí */
         document.querySelector(
             ".image2"
         ).style.transform = `scale(${scaleValue})`;
         isZoomed = true;
-    } else if (sectionsScrolled <= 5.6 && isZoomed) {
+    }
+    else if (sectionsScrolled <= 4.9 && isZoomed) {
         document.querySelector(".image2").style.transition =
             "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
         document.querySelector(".image2").style.transform = "scale(1)";
