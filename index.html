@@ -159,16 +159,17 @@
         .letrasConEfectoVideo h1 {
             overflow: hidden;
             position: relative;
-            font-size: 4vw !important;
+            font-size: 3vw !important;
             color: white;
+            font-family: "Montserrat", sans-serif;
         }
 
         .letrasConEfectoVideo h1 span {
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-        /*    animation: appearFromBottom 0.5s forwards;
-            animation-delay: calc(0.5s * var(--index));*/
+            /*    animation: appearFromBottom 0.5s forwards;
+                animation-delay: calc(0.5s * var(--index));*/
         }
 
         .animation {
@@ -660,26 +661,40 @@
             width: 3rem;
             height: 3rem;
         }
+
+        .btn-prev {
+            position: absolute;
+            top: 41%;
+            left: 13%;
+            color: black;
+        }
+
+        .btn-next {
+            position: absolute;
+            top: 41%;
+            right: 18%;
+            color: black;
+        }
     </style>
 </head>
 <body>
-<div style="background-color: #c7cfd6" onclick="playAudio()">
+<div style="background-color: #c7cfd6">
     <div id="globe-hero" style="position: relative; height: 100vh">
         <div id="container" style="height: 90%"></div>
 
         <div id="currentInfo">
-          <span id="year1990" class="year" onclick="playAudio()"
+          <span id="year1990" class="year"
           >HCI + SPDC |</span
           >
-            <span id="year1995" class="year" onclick="playAudio()">Nube |</span>
-            <span id="year2000" class="year" onclick="playAudio()"
+            <span id="year1995" class="year">Nube |</span>
+            <span id="year2000" class="year"
             >Seguridad |</span
             >
-            <span id="year1" class="year" onclick="playAudio()">Proceso |</span>
-            <span id="year2" class="year" onclick="playAudio()">Monitoreo |</span>
-            <span id="year3" class="year" onclick="playAudio()">Datos |</span>
-            <span id="year4" class="year" onclick="playAudio()">Redes |</span>
-            <span id="year5" class="year" onclick="playAudio()"
+            <span id="year1" class="year">Proceso |</span>
+            <span id="year2" class="year">Monitoreo |</span>
+            <span id="year3" class="year">Datos |</span>
+            <span id="year4" class="year">Redes |</span>
+            <span id="year5" class="year"
             >Usuario Final</span
             >
         </div>
@@ -693,12 +708,12 @@
             color: #463c4f;
             font-weight: 500;
           "
-                class="letrasConEfecto"
+
         >
             <h1>
-                <span style="--index: 1">Transformación</span>
-                <span style="--index: 2">Sin</span>
-                <span style="--index: 3">Fronteras</span>
+                <span style="--index: 1" class="letrasConEfecto">Transformación</span>
+                <span style="--index: 2" class="letrasConEfecto">Sin</span>
+                <span style="--index: 3" class="letrasConEfecto">Fronteras</span>
             </h1>
         </div>
         <div style="position: absolute; top: 5%; left: 3%">
@@ -1157,7 +1172,7 @@
                     <div>VER TODO</div>
                 </div>
             </div>
-            <div class="row" style="color: #3a3a3a; margin-bottom: 3%">
+            <div class="row" style="color: #3a3a3a; margin-bottom: 2%">
                 <div class="col-2" style="text-align: end; font-size: 1.5vw"></div>
                 <div class="col-8" style="font-size: 1.8vw;">
                     <em
@@ -1175,8 +1190,8 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="row">
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
-                                <div class="row" style="background-color: #f3f2f3">
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 5% 2% 15%; ">
+                                <div class="row" style="background-color: #f3f2f3;">
                                     <div
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
@@ -1191,17 +1206,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/HCI.jpg"
-                                                style="width: 104%; position: absolute; right: -2%"
+                                                style="width: 110%; position: absolute; right: -5%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center;  color: #BFC9D1"
                                     >
                                         <p style="font-size: 2vw; font-weight: 400">
                                             HCI + SDDC
                                         </p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Transformamos la infraestructura de TI para que sea
                                             definida por software que virtualiza todos los
                                             elmentos de los sistemas convencionales definidos por
@@ -1211,7 +1226,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 15% 2% 5%;">
                                 <div class="row" style="background-color: #f3f2f3">
                                     <div
                                             class="col-12"
@@ -1227,18 +1242,19 @@
                                         />
                                         <img
                                                 src="assets/verticales/Seguridad.jpg"
-                                                style="width: 104%; position: absolute; left: -2%"
+                                                style="width: 110%; position: absolute; left: -4%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center; height: 18vh; color: #BFC9D1"
                                     >
                                         <p style="font-size: 2vw; font-weight: 400">
                                             SEGURIDAD
                                         </p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
-                                            Habilitamos y apoyamos en cada momento critico sobre
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
+
+                                        Habilitamos y apoyamos en cada momento critico sobre
                                             las amenazas cibernéticas, antes y durante los
                                             eventos.
                                         </p>
@@ -1246,8 +1262,14 @@
                                 </div>
                             </div>
 
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
-                                <div class="row" style="background-color: #f3f2f3">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 5% 2% 15%; ">
+                                <div class="row" style="background-color: #f3f2f3;">
                                     <div
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
@@ -1262,17 +1284,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Usuario.jpg"
-                                                style="width: 104%; position: absolute; right: -2%"
+                                                style="width: 110%; position: absolute; right: -5%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center;  color: #BFC9D1"
                                     >
                                         <p style="font-size: 2vw; font-weight: 400">
                                             USUARIO FINAL
                                         </p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Nos aseguramos de que los usuarios, con distintos
                                             dispositivos, puedan acceder a sus aplicaciones y
                                             datos desde cualquier lugar y en cualquier momento.
@@ -1280,11 +1302,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
+
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 15% 2% 5%;">
                                 <div class="row" style="background-color: #f3f2f3">
                                     <div
                                             class="col-12"
@@ -1300,15 +1319,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Datos.png"
-                                                style="width: 104%; position: absolute; right: -2%"
+                                                style="width: 110%; position: absolute; left: -4%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center; height: 18vh; color: #BFC9D1"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">DATOS</p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            DATOS
+                                        </p>
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Podemos conectar a los creadores y consumidores de
                                             datos sin dificultades para analizar datos de manera
                                             rápida y aprovechar todo el valor que ofrecen.
@@ -1316,9 +1337,15 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
-                                <div class="row" style="background-color: #f3f2f3">
+
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 5% 2% 15%; ">
+                                <div class="row" style="background-color: #f3f2f3;">
                                     <div
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
@@ -1333,15 +1360,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Procesos.jpg"
-                                                style="width: 104%; position: absolute; left: -2%"
+                                                style="width: 110%; position: absolute; right: -5%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center;  color: #BFC9D1"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">PROCESOS</p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            PROCESOS
+                                        </p>
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Desarrollamos Flujos de Trabajo Digitales, conectamos
                                             personas, funciones y sistemas en todas las áreas de
                                             negocio.
@@ -1350,7 +1379,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 15% 2% 5%;">
                                 <div class="row" style="background-color: #f3f2f3">
                                     <div
                                             class="col-12"
@@ -1366,15 +1395,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Nube.png"
-                                                style="width: 104%; position: absolute; right: -2%"
+                                                style="width: 110%; position: absolute; left: -4%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center; height: 18vh; color: #BFC9D1"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">NUBE</p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            NUBE
+                                        </p>
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Conoce como libramos a nuestros clientes de la
                                             complejidad y el costo de la TI tradicional mediante
                                             el poder de la nube híbrida o total.
@@ -1384,10 +1415,12 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="carousel-item">
                         <div class="row">
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
-                                <div class="row" style="background-color: #f3f2f3">
+
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 5% 2% 15%; ">
+                                <div class="row" style="background-color: #f3f2f3;">
                                     <div
                                             class="col-12"
                                             style="font-size: 1.5vw; height: 5vh"
@@ -1402,15 +1435,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Redes.jpg"
-                                                style="width: 104%; position: absolute; right: -2%"
+                                                style="width: 110%; position: absolute; right: -5%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center;  color: #BFC9D1"
                                     >
-                                        <p style="font-size: 2vw; font-weight: 400">REDES</p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 2vw; font-weight: 400">
+                                            REDES
+                                        </p>
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Creamos nuevas formas de interactuar con los usuarios
                                             aprovechando las redes tecnológicas, monitoreo e
                                             interpretación de datos.
@@ -1419,7 +1454,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-4" style="font-size: 1.5vw; padding: 4%">
+                            <div class="col-6" style="font-size: 1.5vw; padding: 2% 15% 2% 5%;">
                                 <div class="row" style="background-color: #f3f2f3">
                                     <div
                                             class="col-12"
@@ -1435,17 +1470,17 @@
                                         />
                                         <img
                                                 src="assets/verticales/Monitoreo.jpg"
-                                                style="width: 104%; position: absolute; left: -2%"
+                                                style="width: 110%; position: absolute; left: -4%"
                                         />
                                     </div>
                                     <div
                                             class="col-12"
-                                            style="text-align: center; height: 18vh; color: #9377ab"
+                                            style="text-align: center; height: 18vh; color: #BFC9D1"
                                     >
                                         <p style="font-size: 2vw; font-weight: 400">
                                             MONITOREO
                                         </p>
-                                        <p style="font-size: 0.8vw;        color: #9da5aa;">
+                                        <p style="font-size: 0.8vw;   height: 10vh;     color: #9da5aa;">
                                             Llevamos a cabo acciones proactivas y preventivas, así
                                             como análisis predictivos de datos que aseguren la
                                             disponibilidad de los procesos de negocio.
@@ -1453,36 +1488,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="col-4" style="font-size: 1.5vw; padding: 2%">
-                                <!-- <div class="row" style="background-color: #f3f2f3">
-                                            <div
-                                              class="col-12"
-                                              style="font-size: 1.5vw; height: 5vh"
-                                            ></div>
-                                            <div class="col-12" style="font-size: 1.5vw">
-                                              <img
-                                                src="assets/verticales/Usuario.jpg"
-                                                style="width: 100%"
-                                              />
-                                            </div>
-                                            <div
-                                              class="col-12"
-                                              style="text-align: center; height: 18vh; color: #9377ab"
-                                            >
-                                              <p style="font-size: 2vw; font-weight: 400">
-                                                USUARIO FINAL
-                                              </p>
-                                              <p style="font-size: 0.8vw">
-                                                Nos aseguramos de que los usuarios, con distintos
-                                                dispositivos, puedan acceder a sus aplicaciones y datos
-                                                desde cualquier lugar y en cualquier momento.
-                                              </p>
-                                            </div>
-                                          </div> -->
-                            </div>
                         </div>
                     </div>
+
+
                 </div>
                 <button
                         class="carousel-control-prev"
@@ -2275,22 +2284,23 @@
               width: 100%;
               top: 40%;
               color: #463c4f;
-              font-weight: 500;
+
               z-index: 1;
+
             "
                 class="letrasConEfectoVideo"
         >
-            <h1 class="animarTexto">
-                <span class="animarTexto" style="--index: 1">Transformando</span>
+            <h1>
+                <span style="--index: 1">Transformando</span>
 
-                <span class="animarTexto" style="--index: 2">el</span>
+                <span style="--index: 2">el</span>
 
-                <span class="animarTexto" style="--index: 3">mundo digital</span>
+                <span style="--index: 3">mundo digital</span>
             </h1>
-            <h1 >
-                <span class="animarTexto" style="--index: 1">Sellcom</span>
+            <h1>
+                <span style="--index: 1">Sellcom</span>
 
-                <span  class="animarTexto" style="--index: 2">Solutions</span>
+                <span style="--index: 2">Solutions</span>
             </h1>
         </div>
         <div class="image-container image2"></div>
@@ -2367,7 +2377,7 @@
                   justify-content: end;
                   align-items: center;
 font-size: 1.5vw">
-                            <div >
+                            <div>
                                 <p>SELLCOM SOLUTIONS</p>
                             </div>
                         </div>

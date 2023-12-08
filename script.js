@@ -12,15 +12,14 @@ function handleScroll() {
     elements.forEach(function (element) {
         var isInViewport = isElementInViewport(element, 0);
 
-        // Verifica si el elemento está en el viewport
+
         if (isInViewport) {
-            // Aplica la animación si no se ha aplicado previamente
+
             if (!element.classList.contains('animated')) {
                 element.style.animation = 'appearFromBottom 0.5s forwards';
                 element.classList.add('animated');
             }
         } else {
-            // Si está fuera del viewport, reinicia la animación eliminando la clase 'animated'
             element.style.animation = '';
             element.classList.remove('animated');
         }
@@ -81,7 +80,9 @@ window.addEventListener("scroll", function () {
         document.querySelector(".image2").style.transition = "transform 2s ease-in"; /* Ajusta la duración de la transición aquí */
         document.querySelector(".image2").style.transform = `scale(${scaleValue})`;
         isZoomed = true;
-
+        setTimeout(function () {
+            document.querySelector('.letrasConEfectoVideo').classList.add('animation');
+        }, 20000);
 
     } else if (sectionsScrolled <= 4.9 && isZoomed) {
         document.querySelector(".image2").style.transition = "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
