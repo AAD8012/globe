@@ -167,7 +167,12 @@
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-            animation: appearFromBottom 0.5s forwards;
+        /*    animation: appearFromBottom 0.5s forwards;
+            animation-delay: calc(0.5s * var(--index));*/
+        }
+
+        .animation {
+            animation: appearFromBottom 5s forwards;
             animation-delay: calc(0.5s * var(--index));
         }
 
@@ -1527,7 +1532,7 @@
                 <div class="col-8" style="font-size: 2.3vw">Conócenos</div>
             </div>
 
-            <div class="row" style="padding: 1% 15%">
+            <div class="row" style="padding: 1% 16%">
                 <div class="col-4" style="font-size: 1.5vw;">
                     <div style="padding: 2%; background-color: #e3e3e4">
                         <div style="height: 100%; background-color: white; text-align: center; padding: 25% 1%">
@@ -1559,8 +1564,8 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5%">
-                        <div class="col-6" style="font-size: 1.5vw">Premios</div>
-                        <div class="col-6">
+                        <div class="col-4" style="font-size: 1.5vw">Premios</div>
+                        <div class="col-8">
                             <img src="lineaconocenos.png" style="width: 100%"/>
                         </div>
                     </div>
@@ -2275,17 +2280,17 @@
             "
                 class="letrasConEfectoVideo"
         >
-            <h1>
-                <span style="--index: 1">Transformando</span>
+            <h1 class="animarTexto">
+                <span class="animarTexto" style="--index: 1">Transformando</span>
 
-                <span style="--index: 2">el</span>
+                <span class="animarTexto" style="--index: 2">el</span>
 
-                <span style="--index: 3">mundo digital</span>
+                <span class="animarTexto" style="--index: 3">mundo digital</span>
             </h1>
-            <h1>
-                <span style="--index: 1">Sellcom</span>
+            <h1 >
+                <span class="animarTexto" style="--index: 1">Sellcom</span>
 
-                <span style="--index: 2">Solutions</span>
+                <span  class="animarTexto" style="--index: 2">Solutions</span>
             </h1>
         </div>
         <div class="image-container image2"></div>

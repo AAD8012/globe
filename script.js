@@ -4,12 +4,7 @@ document.addEventListener("scroll", function () {
 
 function isElementInViewport(el, offset) {
     var rect = el.getBoundingClientRect();
-    return (
-        rect.top >= offset &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
+    return (rect.top >= offset && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
 }
 
 function handleScroll() {
@@ -67,15 +62,9 @@ window.addEventListener("scroll", function () {
     const scrollValue = window.scrollY;
     const sectionsScrolled = scrollValue / window.innerHeight;
 
-    if (
-        sectionsScrolled > 1 &&
-        !miElemento.classList.contains("fixed-top")
-    ) {
+    if (sectionsScrolled > 1 && !miElemento.classList.contains("fixed-top")) {
         miElemento.classList.add("fixed-top");
-    } else if (
-        sectionsScrolled <= 1 &&
-        miElemento.classList.contains("fixed-top")
-    ) {
+    } else if (sectionsScrolled <= 1 && miElemento.classList.contains("fixed-top")) {
         miElemento.classList.remove("fixed-top");
     }
 });
@@ -87,23 +76,38 @@ window.addEventListener("scroll", function () {
     const scaleValue = 75;
     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
 
-    console.log(sectionsScrolled)
+
     if (sectionsScrolled > 4.9 && !isZoomed) {
-        document.querySelector(".image2").style.transition =
-            "transform 2s ease-in"; /* Ajusta la duración de la transición aquí */
-        document.querySelector(
-            ".image2"
-        ).style.transform = `scale(${scaleValue})`;
+        document.querySelector(".image2").style.transition = "transform 2s ease-in"; /* Ajusta la duración de la transición aquí */
+        document.querySelector(".image2").style.transform = `scale(${scaleValue})`;
         isZoomed = true;
-    }
-    else if (sectionsScrolled <= 4.9 && isZoomed) {
-        document.querySelector(".image2").style.transition =
-            "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
+
+
+    } else if (sectionsScrolled <= 4.9 && isZoomed) {
+        document.querySelector(".image2").style.transition = "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
         document.querySelector(".image2").style.transform = "scale(1)";
         isZoomed = false;
+        document.querySelector('.animarTexto').classList.remove('animation');
+
     }
 });
-
+// window.addEventListener("scroll", function () {
+//     const scrollValue = window.scrollY;
+//
+//     const sectionsScrolled = scrollValue / window.innerHeight; // Número de secciones desplazadas
+//
+//     console.log(sectionsScrolled)
+//     if (sectionsScrolled > 5.5) {
+//
+//         document.querySelector('.animarTexto').classList.add('animation');
+//
+//
+//     } else if (sectionsScrolled <= 5.5) {
+//
+//         document.querySelector('.animarTexto').classList.remove('animation');
+//
+//     }
+// });
 // window.addEventListener("scroll", function () {
 //
 //     const scrollValue = window.scrollY;
@@ -140,8 +144,7 @@ if (!Detector.webgl) {
     var container = document.getElementById("container");
     var globe = new DAT.Globe(container);
 
-    var i,
-        tweens = [];
+    var i, tweens = [];
 
     var settime = function (globe, t) {
         return function () {
@@ -178,9 +181,7 @@ if (!Detector.webgl) {
                 window.data = data;
                 for (i = 0; i < data.length; i++) {
                     globe.addData(data[i][1], {
-                        format: "magnitude",
-                        name: data[i][0],
-                        animated: true,
+                        format: "magnitude", name: data[i][0], animated: true,
                     });
                 }
                 globe.createPoints();
