@@ -60,7 +60,7 @@
         h1 {
             overflow: hidden;
             position: relative;
-            font-size: 4vw !important;
+            font-size: 7vw;
         }
 
         h1 span {
@@ -83,22 +83,6 @@
             background-color: #9377ab;
         }
 
-
-        .conocenos_2 {
-            position: absolute;
-            top: 0;
-            left: 43%;
-            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-            opacity: 0;
-        }
-
-        .conocenos_3 {
-            position: absolute;
-            top: 0;
-            left: 65%;
-            transition: top 0.5s linear, opacity 0.5s linear; /* Añadimos la transición de opacidad para que valla apareciendo la imagen*/
-            opacity: 0;
-        }
 
         .container-img {
             position: relative;
@@ -168,14 +152,9 @@
             display: inline-block;
             opacity: 0;
             transform: translateY(100%);
-            /*    animation: appearFromBottom 0.5s forwards;
-                animation-delay: calc(0.5s * var(--index));*/
+
         }
 
-        .animation {
-            animation: appearFromBottom 5s forwards;
-            animation-delay: calc(0.5s * var(--index));
-        }
 
         .btn-next {
             position: absolute;
@@ -191,17 +170,6 @@
             color: black;
         }
 
-        .menu_1 {
-            transition: background-color 0.2s linear; /* Agrega una transición suave de 0.3 segundos */
-            font-size: 1.5vw;
-            border-radius: 10px;
-        }
-
-        .menu_1:hover {
-            background-color: #c3cdd5; /* Cambia esto al color de fondo deseado */
-            border-radius: 10px;
-            color: white;
-        }
 
         #image_1 {
             display: none;
@@ -553,85 +521,6 @@
             }
         }
 
-        #menu_image_1 {
-            display: none;
-        }
-
-        #menu_1:hover {
-            #menu_image_1 {
-                display: block;
-            }
-        }
-
-        #menu_image_2 {
-            display: none;
-        }
-
-        #menu_2:hover {
-            #menu_image_2 {
-                display: block;
-            }
-        }
-
-        #menu_image_3 {
-            display: none;
-        }
-
-        #menu_3:hover {
-            #menu_image_3 {
-                display: block;
-            }
-        }
-
-        #menu_image_4 {
-            display: none;
-        }
-
-        #menu_4:hover {
-            #menu_image_4 {
-                display: block;
-            }
-        }
-
-        #menu_image_5 {
-            display: none;
-        }
-
-        #menu_5:hover {
-            #menu_image_5 {
-                display: block;
-            }
-        }
-
-        #menu_image_6 {
-            display: none;
-        }
-
-        #menu_6:hover {
-            #menu_image_6 {
-                display: block;
-            }
-        }
-
-        #menu_image_7 {
-            display: none;
-        }
-
-        #menu_7:hover {
-            #menu_image_7 {
-                display: block;
-            }
-        }
-
-        #menu_image_8 {
-            display: none;
-        }
-
-        #menu_8:hover {
-            #menu_image_8 {
-                display: block;
-            }
-        }
 
         .title:hover {
             color: #7B8080;
@@ -664,7 +553,7 @@
 
         .contenedor:hover .imagen {
             opacity: 1;
-cursor: pointer;
+            cursor: pointer;
 
         }
 
@@ -683,6 +572,8 @@ cursor: pointer;
             font-weight: 500;
 
         }
+
+
     </style>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -726,6 +617,598 @@ cursor: pointer;
             right: 18%;
             color: black;
         }
+
+        h1 {
+            overflow: hidden;
+            position: relative;
+            font-size: 4vw;
+        }
+
+        #logo-sellcom img {
+            width: 5%;
+        }
+
+        #miImagen {
+            width: 20%;
+        }
+
+        #navbar {
+            font-size: .7vw;
+            padding: 0% 19%;
+        }
+
+        @media (max-width: 390px) {
+            #navbar {
+                font-size: 1.2vw;
+                padding: 0% 5%;
+            }
+            #miImagen {
+                width: 10px;
+            }
+
+            #logo-sellcom img {
+                width: 15%;
+            }
+
+            #currentInfo {
+                width: 100%;
+                position: absolute;
+                top: 90%;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            a {
+                color: #aaa;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .year {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.4);
+                cursor: pointer;
+                font-size: 2.5vw;
+                color: #9da5aa;
+                margin-right: 5px;
+            }
+
+            .year:hover {
+                color: #3a3a3a;
+            }
+
+            #ce span {
+                display: none;
+            }
+
+            @keyframes appearFromBottom {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            h1 {
+                overflow: hidden;
+                position: relative;
+                font-size: 7vw;
+            }
+
+            h1 span {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(100%);
+            }
+
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+                position: relative !important;
+            }
+
+            .btn-view-all div:first-child {
+                transition: background-color 0.3s ease;
+            }
+
+            .btn-view-all:hover div:first-child {
+                background-color: #9377ab;
+            }
+
+
+            .container-img {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            .image-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                will-change: transform;
+                transition: transform 0.5s linear;
+            }
+
+            .image-container_zoom {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                will-change: transform;
+                transition: transform 1s ease-out; /* Transición más larga para el zoom */
+            }
+
+            .image1 {
+                z-index: 1;
+            }
+
+            .image2 {
+                background-image: url("3.png");
+                z-index: 2;
+                transform-origin: center center;
+            }
+
+            video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @keyframes appearFromBottom {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .letrasConEfectoVideo h1 {
+                overflow: hidden;
+                position: relative;
+                font-size: 3vw !important;
+                color: white;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            .letrasConEfectoVideo h1 span {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(100%);
+
+            }
+
+
+            .btn-next {
+                position: absolute;
+                top: 41%;
+                right: 215%;
+                color: black;
+            }
+
+            .btn-prev {
+                position: absolute;
+                top: 41%;
+                left: 215%;
+                color: black;
+            }
+
+
+            #image_1 {
+                display: none;
+            }
+
+            #aruba:hover {
+                #image_1 {
+                    display: block;
+                }
+
+                #image_2 {
+                    display: none;
+                }
+            }
+
+            #image_3 {
+                display: none;
+            }
+
+            #assac:hover {
+                #image_3 {
+                    display: block;
+                }
+
+                #image_4 {
+                    display: none;
+                }
+            }
+
+            #image_5 {
+                display: none;
+            }
+
+            #automotion:hover {
+                #image_5 {
+                    display: block;
+                }
+
+                #image_6 {
+                    display: none;
+                }
+            }
+
+            #image_7 {
+                display: none;
+            }
+
+            #aws:hover {
+                #image_7 {
+                    display: block;
+                }
+
+                #image_8 {
+                    display: none;
+                }
+            }
+
+            #image_9 {
+                display: none;
+            }
+
+            #azure:hover {
+                #image_9 {
+                    display: block;
+                }
+
+                #image_10 {
+                    display: none;
+                }
+            }
+
+            #image_11 {
+                display: none;
+            }
+
+            #blanco:hover {
+                #image_11 {
+                    display: block;
+                }
+
+                #image_12 {
+                    display: none;
+                }
+            }
+
+            #image_13 {
+                display: none;
+            }
+
+            #hitachi:hover {
+                #image_13 {
+                    display: block;
+                }
+
+                #image_14 {
+                    display: none;
+                }
+            }
+
+            #image_15 {
+                display: none;
+            }
+
+            #intel:hover {
+                #image_15 {
+                    display: block;
+                }
+
+                #image_16 {
+                    display: none;
+                }
+            }
+
+            #image_17 {
+                display: none;
+            }
+
+            #jamf:hover {
+                #image_17 {
+                    display: block;
+                }
+
+                #image_18 {
+                    display: none;
+                }
+            }
+
+            #image_19 {
+                display: none;
+            }
+
+            #qlink:hover {
+                #image_19 {
+                    display: block;
+                }
+
+                #image_20 {
+                    display: none;
+                }
+            }
+
+            #image_21 {
+                display: none;
+            }
+
+            #net:hover {
+                #image_21 {
+                    display: block;
+                }
+
+                #image_22 {
+                    display: none;
+                }
+            }
+
+            #image_23 {
+                display: none;
+            }
+
+            #nut:hover {
+                #image_23 {
+                    display: block;
+                }
+
+                #image_24 {
+                    display: none;
+                }
+            }
+
+            #image_25 {
+                display: none;
+            }
+
+            #power:hover {
+                #image_25 {
+                    display: block;
+                }
+
+                #image_26 {
+                    display: none;
+                }
+            }
+
+            #image_27 {
+                display: none;
+            }
+
+            #red:hover {
+                #image_27 {
+                    display: block;
+                }
+
+                #image_28 {
+                    display: none;
+                }
+            }
+
+            #image_29 {
+                display: none;
+            }
+
+            #service:hover {
+                #image_29 {
+                    display: block;
+                }
+
+                #image_30 {
+                    display: none;
+                }
+            }
+
+            #image_31 {
+                display: none;
+            }
+
+            #cye:hover {
+                #image_31 {
+                    display: block;
+                }
+
+                #image_32 {
+                    display: none;
+                }
+            }
+
+            #image_33 {
+                display: none;
+            }
+
+            #hp:hover {
+                #image_33 {
+                    display: block;
+                }
+
+                #image_34 {
+                    display: none;
+                }
+            }
+
+            #image_35 {
+                display: none;
+            }
+
+            #hpe:hover {
+                #image_35 {
+                    display: block;
+                }
+
+                #image_36 {
+                    display: none;
+                }
+            }
+
+            #image_37 {
+                display: none;
+            }
+
+            #micro:hover {
+                #image_37 {
+                    display: block;
+                }
+
+                #image_38 {
+                    display: none;
+                }
+            }
+
+            #image_39 {
+                display: none;
+            }
+
+            #vm:hover {
+                #image_39 {
+                    display: block;
+                }
+
+                #image_40 {
+                    display: none;
+                }
+            }
+
+            #image_41 {
+                display: none;
+            }
+
+            #ivanti:hover {
+                #image_41 {
+                    display: block;
+                }
+
+                #image_42 {
+                    display: none;
+                }
+            }
+
+            #image_43 {
+                display: none;
+            }
+
+            #veem:hover {
+                #image_43 {
+                    display: block;
+                }
+
+                #image_44 {
+                    display: none;
+                }
+            }
+
+            #image_45 {
+                display: none;
+            }
+
+            #dell:hover {
+                #image_45 {
+                    display: block;
+                }
+
+                #image_46 {
+                    display: none;
+                }
+            }
+
+            #image_47 {
+                display: none;
+            }
+
+            #naudi:hover {
+                #image_47 {
+                    display: block;
+                }
+
+                #image_48 {
+                    display: none;
+                }
+            }
+
+            #image_49 {
+                display: none;
+            }
+
+            #ssl:hover {
+                #image_49 {
+                    display: block;
+                }
+
+                #image_50 {
+                    display: none;
+                }
+            }
+
+
+            .title:hover {
+                color: #7B8080;
+            }
+
+            .conocenos_1 {
+                transition: transform 0.3s ease; /* Efecto de transición en 0.3 segundos */
+
+            }
+
+            .conocenos_1:hover {
+                transform: scale(1.2); /* Escala la imagen al 120% cuando esté en estado hover */
+            }
+
+            .title-conocenos:hover {
+                color: #BCC8D1;
+            }
+
+            .contenedor {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .imagen {
+                width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+                height: auto;
+                opacity: 0; /* Inicialmente oculta la imagen */
+                transition: opacity 0.2s linear; /* Efecto de transición en la opacidad */
+            }
+
+            .contenedor:hover .imagen {
+                opacity: 1;
+                cursor: pointer;
+
+            }
+
+            .parrafo_1 {
+                opacity: 0;
+            }
+
+            .parrafo {
+                position: absolute;
+                top: 40%;
+                right: 25%;
+            }
+
+            .contenedor:hover .parrafo {
+                top: 0%;
+                font-weight: 500;
+
+            }
+        }
     </style>
 </head>
 <body>
@@ -737,14 +1220,14 @@ cursor: pointer;
           <span id="year1990" class="year"
           >HCI + SPDC |</span
           >
-            <span id="year1995" class="year">Nube |</span>
+            <span id="year1995" class="year">Nube | </span>
             <span id="year2000" class="year"
             >Seguridad |</span
             >
-            <span id="year1" class="year">Proceso |</span>
-            <span id="year2" class="year">Monitoreo |</span>
-            <span id="year3" class="year">Datos |</span>
-            <span id="year4" class="year">Redes |</span>
+            <span id="year1" class="year">Proceso | </span>
+            <span id="year2" class="year">Monitoreo | </span>
+            <span id="year3" class="year">Datos | </span>
+            <span id="year4" class="year">Redes | </span>
             <span id="year5" class="year"
             >Usuario Final</span
             >
@@ -767,11 +1250,11 @@ cursor: pointer;
                 <span style="--index: 3" class="letrasConEfecto">Fronteras</span>
             </h1>
         </div>
-        <div style="position: absolute; top: 5%; left: 3%">
+        <div style="position: absolute; top: 5%; left: 3%" id="logo-sellcom">
             <img
                     src="https://sellcom-solutions.com.mx/PaginaSellcom/Assets/Images/Home/Logo-Sellcom.png"
                     alt=""
-                    width="5%"
+
             />
         </div>
     </div>
@@ -783,8 +1266,7 @@ cursor: pointer;
             id="navbar"
             class="row"
             style="
-          padding: 0% 19%;
-          font-size: 0.7vw;
+
           text-align: center;
           font-weight: lighter;
           height: 5vh;
@@ -799,7 +1281,7 @@ cursor: pointer;
                 <img
                         id="miImagen"
                         src="assets/flecha-derecha.png"
-                        style="width: 40%"
+
                 />
             </a>
         </div>
