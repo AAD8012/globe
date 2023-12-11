@@ -72,7 +72,7 @@ document.addEventListener("scroll", function () {
     const sectionsScrolled = scrollValue / window.innerHeight;
 
 
-    const porcentajeAncho = (sectionsScrolled * 100) / 6;
+    const porcentajeAncho = (sectionsScrolled * 100) / 5.3;
     const progress = document.getElementById("progress");
     progress.style.width = porcentajeAncho + "%";
 
