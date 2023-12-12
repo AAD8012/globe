@@ -6,7 +6,7 @@ document.addEventListener("scroll", function () {
 
 
 function isElementInViewport(el, offset) {
-    var rect = el.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
     return (rect.top >= offset && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
 }
 
@@ -128,7 +128,7 @@ window.addEventListener("scroll", function () {
         document.querySelector(".image2").style.transition = "transform 0.5s ease-out"; /* Vuelve a la duración original de la transición */
         document.querySelector(".image2").style.transform = "scale(1)";
         isZoomed = false;
-        document.querySelector('.animarTexto').classList.remove('animation');
+      /*  document.querySelector('.animarTexto').classList.remove('animation');*/
 
     }
 });
